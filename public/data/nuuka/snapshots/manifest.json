@@ -1,0 +1,137 @@
+{
+  "generatedAt": "2026-06-20T15:35:16.267Z",
+  "entries": [
+    {
+      "id": "electricity-hourly",
+      "utility": "electricity",
+      "granularity": "hourly",
+      "propertyCode": "091-002-0014-0005",
+      "generatedAt": "2026-06-20T15:35:10.823Z",
+      "sourceLatestTimestamp": "2026-05-17T02:00:00",
+      "unit": "kWh",
+      "file": "electricity-hourly.json",
+      "pointCount": 1848
+    },
+    {
+      "id": "electricity-daily",
+      "utility": "electricity",
+      "granularity": "daily",
+      "propertyCode": "091-002-0014-0005",
+      "generatedAt": "2026-06-20T15:35:11.201Z",
+      "sourceLatestTimestamp": "2026-05-17T00:00:00",
+      "unit": "kWh",
+      "file": "electricity-daily.json",
+      "pointCount": 30
+    },
+    {
+      "id": "electricity-monthly",
+      "utility": "electricity",
+      "granularity": "monthly",
+      "propertyCode": "091-002-0014-0005",
+      "generatedAt": "2026-06-20T15:35:11.454Z",
+      "sourceLatestTimestamp": "2026-05-17T00:00:00",
+      "unit": "kWh",
+      "file": "electricity-monthly.json",
+      "pointCount": 90
+    },
+    {
+      "id": "heat-hourly",
+      "utility": "heat",
+      "granularity": "hourly",
+      "propertyCode": "091-002-0014-0005",
+      "generatedAt": "2026-06-20T15:35:11.913Z",
+      "sourceLatestTimestamp": "2026-05-31T23:00:00",
+      "unit": "kWh",
+      "file": "heat-hourly.json",
+      "pointCount": 1056
+    },
+    {
+      "id": "heat-daily",
+      "utility": "heat",
+      "granularity": "daily",
+      "propertyCode": "091-002-0014-0005",
+      "generatedAt": "2026-06-20T15:35:12.362Z",
+      "sourceLatestTimestamp": "2026-05-31T00:00:00",
+      "unit": "kWh",
+      "file": "heat-daily.json",
+      "pointCount": 44
+    },
+    {
+      "id": "heat-monthly",
+      "utility": "heat",
+      "granularity": "monthly",
+      "propertyCode": "091-002-0014-0005",
+      "generatedAt": "2026-06-20T15:35:12.561Z",
+      "sourceLatestTimestamp": "2026-05-31T00:00:00",
+      "unit": "kWh",
+      "file": "heat-monthly.json",
+      "pointCount": 101
+    },
+    {
+      "id": "water-hourly",
+      "utility": "water",
+      "granularity": "hourly",
+      "propertyCode": "091-002-0014-0005",
+      "generatedAt": "2026-06-20T15:35:14.521Z",
+      "sourceLatestTimestamp": "2026-06-19T00:00:00",
+      "unit": "m3",
+      "file": "water-hourly.json",
+      "pointCount": 8076
+    },
+    {
+      "id": "water-daily",
+      "utility": "water",
+      "granularity": "daily",
+      "propertyCode": "091-002-0014-0005",
+      "generatedAt": "2026-06-20T15:35:14.878Z",
+      "sourceLatestTimestamp": "2026-06-19T00:00:00",
+      "unit": "m3",
+      "file": "water-daily.json",
+      "pointCount": 59
+    },
+    {
+      "id": "water-monthly",
+      "utility": "water",
+      "granularity": "monthly",
+      "propertyCode": "091-002-0014-0005",
+      "generatedAt": "2026-06-20T15:35:15.117Z",
+      "sourceLatestTimestamp": "2026-06-19T00:00:00",
+      "unit": "m3",
+      "file": "water-monthly.json",
+      "pointCount": 83
+    },
+    {
+      "id": "districtCooling-hourly",
+      "utility": "districtCooling",
+      "granularity": "hourly",
+      "propertyCode": "091-002-0014-0005",
+      "generatedAt": "2026-06-20T15:35:15.821Z",
+      "sourceLatestTimestamp": "2026-05-31T23:00:00",
+      "unit": "kWh",
+      "file": "districtCooling-hourly.json",
+      "pointCount": 1056
+    },
+    {
+      "id": "districtCooling-daily",
+      "utility": "districtCooling",
+      "granularity": "daily",
+      "propertyCode": "091-002-0014-0005",
+      "generatedAt": "2026-06-20T15:35:16.029Z",
+      "sourceLatestTimestamp": "2026-05-31T00:00:00",
+      "unit": "kWh",
+      "file": "districtCooling-daily.json",
+      "pointCount": 44
+    },
+    {
+      "id": "districtCooling-monthly",
+      "utility": "districtCooling",
+      "granularity": "monthly",
+      "propertyCode": "091-002-0014-0005",
+      "generatedAt": "2026-06-20T15:35:16.264Z",
+      "sourceLatestTimestamp": "2026-05-31T00:00:00",
+      "unit": "kWh",
+      "file": "districtCooling-monthly.json",
+      "pointCount": 101
+    }
+  ]
+}

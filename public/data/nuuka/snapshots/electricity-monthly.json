@@ -1,0 +1,474 @@
+{
+  "source": {
+    "endpoint": "https://helsinki-openapi.nuuka.cloud/api/v1.0/EnergyData/Monthly/ListByProperty?Record=LocationName&SearchString=4669+Oodi+Helsingin+keskustakirjasto&ReportingGroup=Electricity&StartTime=2018-01-01&EndTime=2026-06-19&Normalization=false",
+    "generatedAt": "2026-06-20T15:35:11.454Z",
+    "propertyCode": "091-002-0014-0005",
+    "utility": "electricity",
+    "granularity": "monthly"
+  },
+  "series": {
+    "utility": "electricity",
+    "reportingGroup": "Electricity",
+    "displayName": "Electricity",
+    "granularity": "monthly",
+    "unit": "kWh",
+    "points": [
+      {
+        "timestamp": "2018-12-31T00:00:00",
+        "sourceTimestamp": "2018-12-31T00:00:00",
+        "value": 141113.69000000003
+      },
+      {
+        "timestamp": "2019-01-31T00:00:00",
+        "sourceTimestamp": "2019-01-31T00:00:00",
+        "value": 155719.4
+      },
+      {
+        "timestamp": "2019-02-28T00:00:00",
+        "sourceTimestamp": "2019-02-28T00:00:00",
+        "value": 145527.18
+      },
+      {
+        "timestamp": "2019-03-31T00:00:00",
+        "sourceTimestamp": "2019-03-31T00:00:00",
+        "value": 154952.59999999998
+      },
+      {
+        "timestamp": "2019-04-30T00:00:00",
+        "sourceTimestamp": "2019-04-30T00:00:00",
+        "value": 140034.46
+      },
+      {
+        "timestamp": "2019-05-31T00:00:00",
+        "sourceTimestamp": "2019-05-31T00:00:00",
+        "value": 145957.05
+      },
+      {
+        "timestamp": "2019-06-30T00:00:00",
+        "sourceTimestamp": "2019-06-30T00:00:00",
+        "value": 136298.01
+      },
+      {
+        "timestamp": "2019-07-31T00:00:00",
+        "sourceTimestamp": "2019-07-31T00:00:00",
+        "value": 150211.77000000002
+      },
+      {
+        "timestamp": "2019-08-31T00:00:00",
+        "sourceTimestamp": "2019-08-31T00:00:00",
+        "value": 159166.05
+      },
+      {
+        "timestamp": "2019-09-30T00:00:00",
+        "sourceTimestamp": "2019-09-30T00:00:00",
+        "value": 146610.05
+      },
+      {
+        "timestamp": "2019-10-31T00:00:00",
+        "sourceTimestamp": "2019-10-31T00:00:00",
+        "value": 153990.45000000004
+      },
+      {
+        "timestamp": "2019-11-30T00:00:00",
+        "sourceTimestamp": "2019-11-30T00:00:00",
+        "value": 153223.55
+      },
+      {
+        "timestamp": "2019-12-31T00:00:00",
+        "sourceTimestamp": "2019-12-31T00:00:00",
+        "value": 152488.52999999997
+      },
+      {
+        "timestamp": "2020-01-31T00:00:00",
+        "sourceTimestamp": "2020-01-31T00:00:00",
+        "value": 156245.04
+      },
+      {
+        "timestamp": "2020-02-29T00:00:00",
+        "sourceTimestamp": "2020-02-29T00:00:00",
+        "value": 148478.68
+      },
+      {
+        "timestamp": "2020-03-31T00:00:00",
+        "sourceTimestamp": "2020-03-31T00:00:00",
+        "value": 135753.81
+      },
+      {
+        "timestamp": "2020-04-30T00:00:00",
+        "sourceTimestamp": "2020-04-30T00:00:00",
+        "value": 109049.5
+      },
+      {
+        "timestamp": "2020-05-31T00:00:00",
+        "sourceTimestamp": "2020-05-31T00:00:00",
+        "value": 113713.57999999999
+      },
+      {
+        "timestamp": "2020-06-30T00:00:00",
+        "sourceTimestamp": "2020-06-30T00:00:00",
+        "value": 124943.34000000003
+      },
+      {
+        "timestamp": "2020-07-31T00:00:00",
+        "sourceTimestamp": "2020-07-31T00:00:00",
+        "value": 131022.01999999999
+      },
+      {
+        "timestamp": "2020-08-31T00:00:00",
+        "sourceTimestamp": "2020-08-31T00:00:00",
+        "value": 134346.89999999997
+      },
+      {
+        "timestamp": "2020-09-30T00:00:00",
+        "sourceTimestamp": "2020-09-30T00:00:00",
+        "value": 131685.90000000002
+      },
+      {
+        "timestamp": "2020-10-31T00:00:00",
+        "sourceTimestamp": "2020-10-31T00:00:00",
+        "value": 132466.18
+      },
+      {
+        "timestamp": "2020-11-30T00:00:00",
+        "sourceTimestamp": "2020-11-30T00:00:00",
+        "value": 127767.64000000001
+      },
+      {
+        "timestamp": "2020-12-31T00:00:00",
+        "sourceTimestamp": "2020-12-31T00:00:00",
+        "value": 113676.14000000001
+      },
+      {
+        "timestamp": "2021-01-31T00:00:00",
+        "sourceTimestamp": "2021-01-31T00:00:00",
+        "value": 113325.21000000002
+      },
+      {
+        "timestamp": "2021-02-28T00:00:00",
+        "sourceTimestamp": "2021-02-28T00:00:00",
+        "value": 101128.79
+      },
+      {
+        "timestamp": "2021-03-31T00:00:00",
+        "sourceTimestamp": "2021-03-31T00:00:00",
+        "value": 113870.11999999997
+      },
+      {
+        "timestamp": "2021-04-30T00:00:00",
+        "sourceTimestamp": "2021-04-30T00:00:00",
+        "value": 108704.83000000002
+      },
+      {
+        "timestamp": "2021-05-31T00:00:00",
+        "sourceTimestamp": "2021-05-31T00:00:00",
+        "value": 109818.37
+      },
+      {
+        "timestamp": "2021-06-30T00:00:00",
+        "sourceTimestamp": "2021-06-30T00:00:00",
+        "value": 118284.73999999998
+      },
+      {
+        "timestamp": "2021-07-31T00:00:00",
+        "sourceTimestamp": "2021-07-31T00:00:00",
+        "value": 131926.67999999996
+      },
+      {
+        "timestamp": "2021-08-31T00:00:00",
+        "sourceTimestamp": "2021-08-31T00:00:00",
+        "value": 127186.52999999998
+      },
+      {
+        "timestamp": "2021-09-30T00:00:00",
+        "sourceTimestamp": "2021-09-30T00:00:00",
+        "value": 131632.77
+      },
+      {
+        "timestamp": "2021-10-31T00:00:00",
+        "sourceTimestamp": "2021-10-31T00:00:00",
+        "value": 136543.44
+      },
+      {
+        "timestamp": "2021-11-30T00:00:00",
+        "sourceTimestamp": "2021-11-30T00:00:00",
+        "value": 135157.59
+      },
+      {
+        "timestamp": "2021-12-31T00:00:00",
+        "sourceTimestamp": "2021-12-31T00:00:00",
+        "value": 142793.10999999996
+      },
+      {
+        "timestamp": "2022-01-31T00:00:00",
+        "sourceTimestamp": "2022-01-31T00:00:00",
+        "value": 139579.87
+      },
+      {
+        "timestamp": "2022-02-28T00:00:00",
+        "sourceTimestamp": "2022-02-28T00:00:00",
+        "value": 131912.11999999997
+      },
+      {
+        "timestamp": "2022-03-31T00:00:00",
+        "sourceTimestamp": "2022-03-31T00:00:00",
+        "value": 144829.73
+      },
+      {
+        "timestamp": "2022-04-30T00:00:00",
+        "sourceTimestamp": "2022-04-30T00:00:00",
+        "value": 137369.07
+      },
+      {
+        "timestamp": "2022-05-31T00:00:00",
+        "sourceTimestamp": "2022-05-31T00:00:00",
+        "value": 140579.52
+      },
+      {
+        "timestamp": "2022-06-30T00:00:00",
+        "sourceTimestamp": "2022-06-30T00:00:00",
+        "value": 136419.75
+      },
+      {
+        "timestamp": "2022-07-31T00:00:00",
+        "sourceTimestamp": "2022-07-31T00:00:00",
+        "value": 136206.73
+      },
+      {
+        "timestamp": "2022-08-31T00:00:00",
+        "sourceTimestamp": "2022-08-31T00:00:00",
+        "value": 143588.81999999998
+      },
+      {
+        "timestamp": "2022-09-30T00:00:00",
+        "sourceTimestamp": "2022-09-30T00:00:00",
+        "value": 136803.3
+      },
+      {
+        "timestamp": "2022-10-31T00:00:00",
+        "sourceTimestamp": "2022-10-31T00:00:00",
+        "value": 141672.7
+      },
+      {
+        "timestamp": "2022-11-30T00:00:00",
+        "sourceTimestamp": "2022-11-30T00:00:00",
+        "value": 142151.72999999995
+      },
+      {
+        "timestamp": "2022-12-31T00:00:00",
+        "sourceTimestamp": "2022-12-31T00:00:00",
+        "value": 142481.51
+      },
+      {
+        "timestamp": "2023-01-31T00:00:00",
+        "sourceTimestamp": "2023-01-31T00:00:00",
+        "value": 143441.90000000002
+      },
+      {
+        "timestamp": "2023-02-28T00:00:00",
+        "sourceTimestamp": "2023-02-28T00:00:00",
+        "value": 132439.45
+      },
+      {
+        "timestamp": "2023-03-31T00:00:00",
+        "sourceTimestamp": "2023-03-31T00:00:00",
+        "value": 146305.54999999996
+      },
+      {
+        "timestamp": "2023-04-30T00:00:00",
+        "sourceTimestamp": "2023-04-30T00:00:00",
+        "value": 137494.66999999998
+      },
+      {
+        "timestamp": "2023-05-31T00:00:00",
+        "sourceTimestamp": "2023-05-31T00:00:00",
+        "value": 139090.92200000002
+      },
+      {
+        "timestamp": "2023-06-30T00:00:00",
+        "sourceTimestamp": "2023-06-30T00:00:00",
+        "value": 134791.3
+      },
+      {
+        "timestamp": "2023-07-31T00:00:00",
+        "sourceTimestamp": "2023-07-31T00:00:00",
+        "value": 137976.62
+      },
+      {
+        "timestamp": "2023-08-31T00:00:00",
+        "sourceTimestamp": "2023-08-31T00:00:00",
+        "value": 139008.72
+      },
+      {
+        "timestamp": "2023-09-30T00:00:00",
+        "sourceTimestamp": "2023-09-30T00:00:00",
+        "value": 139627.13999999998
+      },
+      {
+        "timestamp": "2023-10-31T00:00:00",
+        "sourceTimestamp": "2023-10-31T00:00:00",
+        "value": 144482.77
+      },
+      {
+        "timestamp": "2023-11-30T00:00:00",
+        "sourceTimestamp": "2023-11-30T00:00:00",
+        "value": 140554.68999999997
+      },
+      {
+        "timestamp": "2023-12-31T00:00:00",
+        "sourceTimestamp": "2023-12-31T00:00:00",
+        "value": 132632.88999999998
+      },
+      {
+        "timestamp": "2024-01-31T00:00:00",
+        "sourceTimestamp": "2024-01-31T00:00:00",
+        "value": 134651.81999999998
+      },
+      {
+        "timestamp": "2024-02-29T00:00:00",
+        "sourceTimestamp": "2024-02-29T00:00:00",
+        "value": 126888.91999999998
+      },
+      {
+        "timestamp": "2024-03-31T00:00:00",
+        "sourceTimestamp": "2024-03-31T00:00:00",
+        "value": 133162.40999999997
+      },
+      {
+        "timestamp": "2024-04-30T00:00:00",
+        "sourceTimestamp": "2024-04-30T00:00:00",
+        "value": 128367.35000000002
+      },
+      {
+        "timestamp": "2024-05-31T00:00:00",
+        "sourceTimestamp": "2024-05-31T00:00:00",
+        "value": 137297.56
+      },
+      {
+        "timestamp": "2024-06-30T00:00:00",
+        "sourceTimestamp": "2024-06-30T00:00:00",
+        "value": 130477.57999999999
+      },
+      {
+        "timestamp": "2024-07-31T00:00:00",
+        "sourceTimestamp": "2024-07-31T00:00:00",
+        "value": 137055.41
+      },
+      {
+        "timestamp": "2024-08-31T00:00:00",
+        "sourceTimestamp": "2024-08-31T00:00:00",
+        "value": 138079.85
+      },
+      {
+        "timestamp": "2024-09-30T00:00:00",
+        "sourceTimestamp": "2024-09-30T00:00:00",
+        "value": 132930.08999999997
+      },
+      {
+        "timestamp": "2024-10-31T00:00:00",
+        "sourceTimestamp": "2024-10-31T00:00:00",
+        "value": 141352.34000000003
+      },
+      {
+        "timestamp": "2024-11-30T00:00:00",
+        "sourceTimestamp": "2024-11-30T00:00:00",
+        "value": 130019.37999999999
+      },
+      {
+        "timestamp": "2024-12-31T00:00:00",
+        "sourceTimestamp": "2024-12-31T00:00:00",
+        "value": 134814.05999999997
+      },
+      {
+        "timestamp": "2025-01-31T00:00:00",
+        "sourceTimestamp": "2025-01-31T00:00:00",
+        "value": 137798.06999999995
+      },
+      {
+        "timestamp": "2025-02-28T00:00:00",
+        "sourceTimestamp": "2025-02-28T00:00:00",
+        "value": 129596.32000000004
+      },
+      {
+        "timestamp": "2025-03-31T00:00:00",
+        "sourceTimestamp": "2025-03-31T00:00:00",
+        "value": 135555.88999999998
+      },
+      {
+        "timestamp": "2025-04-30T00:00:00",
+        "sourceTimestamp": "2025-04-30T00:00:00",
+        "value": 129141.67
+      },
+      {
+        "timestamp": "2025-05-31T00:00:00",
+        "sourceTimestamp": "2025-05-31T00:00:00",
+        "value": 133580.74
+      },
+      {
+        "timestamp": "2025-06-30T00:00:00",
+        "sourceTimestamp": "2025-06-30T00:00:00",
+        "value": 131667.97999999998
+      },
+      {
+        "timestamp": "2025-07-31T00:00:00",
+        "sourceTimestamp": "2025-07-31T00:00:00",
+        "value": 140956.55999999997
+      },
+      {
+        "timestamp": "2025-08-31T00:00:00",
+        "sourceTimestamp": "2025-08-31T00:00:00",
+        "value": 137593.88
+      },
+      {
+        "timestamp": "2025-09-30T00:00:00",
+        "sourceTimestamp": "2025-09-30T00:00:00",
+        "value": 131341.05000000002
+      },
+      {
+        "timestamp": "2025-10-31T00:00:00",
+        "sourceTimestamp": "2025-10-31T00:00:00",
+        "value": 134351.15000000002
+      },
+      {
+        "timestamp": "2025-11-30T00:00:00",
+        "sourceTimestamp": "2025-11-30T00:00:00",
+        "value": 132953.36
+      },
+      {
+        "timestamp": "2025-12-31T00:00:00",
+        "sourceTimestamp": "2025-12-31T00:00:00",
+        "value": 128650.207
+      },
+      {
+        "timestamp": "2026-01-31T00:00:00",
+        "sourceTimestamp": "2026-01-31T00:00:00",
+        "value": 130743.577
+      },
+      {
+        "timestamp": "2026-02-28T00:00:00",
+        "sourceTimestamp": "2026-02-28T00:00:00",
+        "value": 121944.65699999998
+      },
+      {
+        "timestamp": "2026-03-31T00:00:00",
+        "sourceTimestamp": "2026-03-31T00:00:00",
+        "value": 136733.685
+      },
+      {
+        "timestamp": "2026-04-30T00:00:00",
+        "sourceTimestamp": "2026-04-30T00:00:00",
+        "value": 128688.64899999998
+      },
+      {
+        "timestamp": "2026-05-17T00:00:00",
+        "sourceTimestamp": "2026-05-17T00:00:00",
+        "value": 69821.368
+      }
+    ],
+    "latestReading": {
+      "timestamp": "2026-05-17T00:00:00",
+      "sourceTimestamp": "2026-05-17T00:00:00",
+      "value": 69821.368
+    },
+    "qualityNotices": []
+  }
+}

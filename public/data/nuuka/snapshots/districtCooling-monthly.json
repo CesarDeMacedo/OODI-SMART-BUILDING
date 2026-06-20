@@ -1,0 +1,529 @@
+{
+  "source": {
+    "endpoint": "https://helsinki-openapi.nuuka.cloud/api/v1.0/EnergyData/Monthly/ListByProperty?Record=LocationName&SearchString=4669+Oodi+Helsingin+keskustakirjasto&ReportingGroup=DistrictCooling&StartTime=2018-01-01&EndTime=2026-06-19&Normalization=false",
+    "generatedAt": "2026-06-20T15:35:16.264Z",
+    "propertyCode": "091-002-0014-0005",
+    "utility": "districtCooling",
+    "granularity": "monthly"
+  },
+  "series": {
+    "utility": "districtCooling",
+    "reportingGroup": "DistrictCooling",
+    "displayName": "District Cooling",
+    "granularity": "monthly",
+    "unit": "kWh",
+    "points": [
+      {
+        "timestamp": "2018-01-31T00:00:00",
+        "sourceTimestamp": "2018-01-31T00:00:00",
+        "value": 0
+      },
+      {
+        "timestamp": "2018-02-28T00:00:00",
+        "sourceTimestamp": "2018-02-28T00:00:00",
+        "value": 0
+      },
+      {
+        "timestamp": "2018-03-31T00:00:00",
+        "sourceTimestamp": "2018-03-31T00:00:00",
+        "value": 0
+      },
+      {
+        "timestamp": "2018-04-30T00:00:00",
+        "sourceTimestamp": "2018-04-30T00:00:00",
+        "value": 0
+      },
+      {
+        "timestamp": "2018-05-31T00:00:00",
+        "sourceTimestamp": "2018-05-31T00:00:00",
+        "value": 3320
+      },
+      {
+        "timestamp": "2018-06-30T00:00:00",
+        "sourceTimestamp": "2018-06-30T00:00:00",
+        "value": 0
+      },
+      {
+        "timestamp": "2018-07-31T00:00:00",
+        "sourceTimestamp": "2018-07-31T00:00:00",
+        "value": 8450
+      },
+      {
+        "timestamp": "2018-08-31T00:00:00",
+        "sourceTimestamp": "2018-08-31T00:00:00",
+        "value": 30830
+      },
+      {
+        "timestamp": "2018-09-30T00:00:00",
+        "sourceTimestamp": "2018-09-30T00:00:00",
+        "value": 4310
+      },
+      {
+        "timestamp": "2018-10-31T00:00:00",
+        "sourceTimestamp": "2018-10-31T00:00:00",
+        "value": 29680
+      },
+      {
+        "timestamp": "2018-11-30T00:00:00",
+        "sourceTimestamp": "2018-11-30T00:00:00",
+        "value": 46030
+      },
+      {
+        "timestamp": "2018-12-31T00:00:00",
+        "sourceTimestamp": "2018-12-31T00:00:00",
+        "value": 13730
+      },
+      {
+        "timestamp": "2019-01-31T00:00:00",
+        "sourceTimestamp": "2019-01-31T00:00:00",
+        "value": 14260
+      },
+      {
+        "timestamp": "2019-02-28T00:00:00",
+        "sourceTimestamp": "2019-02-28T00:00:00",
+        "value": 14380
+      },
+      {
+        "timestamp": "2019-03-31T00:00:00",
+        "sourceTimestamp": "2019-03-31T00:00:00",
+        "value": 20770
+      },
+      {
+        "timestamp": "2019-04-30T00:00:00",
+        "sourceTimestamp": "2019-04-30T00:00:00",
+        "value": 37000
+      },
+      {
+        "timestamp": "2019-05-31T00:00:00",
+        "sourceTimestamp": "2019-05-31T00:00:00",
+        "value": 52180
+      },
+      {
+        "timestamp": "2019-06-30T00:00:00",
+        "sourceTimestamp": "2019-06-30T00:00:00",
+        "value": 97100
+      },
+      {
+        "timestamp": "2019-07-31T00:00:00",
+        "sourceTimestamp": "2019-07-31T00:00:00",
+        "value": 113700
+      },
+      {
+        "timestamp": "2019-08-31T00:00:00",
+        "sourceTimestamp": "2019-08-31T00:00:00",
+        "value": 84620
+      },
+      {
+        "timestamp": "2019-09-30T00:00:00",
+        "sourceTimestamp": "2019-09-30T00:00:00",
+        "value": 51630
+      },
+      {
+        "timestamp": "2019-10-31T00:00:00",
+        "sourceTimestamp": "2019-10-31T00:00:00",
+        "value": 41420
+      },
+      {
+        "timestamp": "2019-11-30T00:00:00",
+        "sourceTimestamp": "2019-11-30T00:00:00",
+        "value": 34410
+      },
+      {
+        "timestamp": "2019-12-31T00:00:00",
+        "sourceTimestamp": "2019-12-31T00:00:00",
+        "value": 32980
+      },
+      {
+        "timestamp": "2020-01-31T00:00:00",
+        "sourceTimestamp": "2020-01-31T00:00:00",
+        "value": 40350
+      },
+      {
+        "timestamp": "2020-02-29T00:00:00",
+        "sourceTimestamp": "2020-02-29T00:00:00",
+        "value": 38660
+      },
+      {
+        "timestamp": "2020-03-31T00:00:00",
+        "sourceTimestamp": "2020-03-31T00:00:00",
+        "value": 43450
+      },
+      {
+        "timestamp": "2020-04-30T00:00:00",
+        "sourceTimestamp": "2020-04-30T00:00:00",
+        "value": 48990
+      },
+      {
+        "timestamp": "2020-05-31T00:00:00",
+        "sourceTimestamp": "2020-05-31T00:00:00",
+        "value": 63020
+      },
+      {
+        "timestamp": "2020-06-30T00:00:00",
+        "sourceTimestamp": "2020-06-30T00:00:00",
+        "value": 128710
+      },
+      {
+        "timestamp": "2020-07-31T00:00:00",
+        "sourceTimestamp": "2020-07-31T00:00:00",
+        "value": 100050
+      },
+      {
+        "timestamp": "2020-08-31T00:00:00",
+        "sourceTimestamp": "2020-08-31T00:00:00",
+        "value": 101260
+      },
+      {
+        "timestamp": "2020-09-30T00:00:00",
+        "sourceTimestamp": "2020-09-30T00:00:00",
+        "value": 54700
+      },
+      {
+        "timestamp": "2020-10-31T00:00:00",
+        "sourceTimestamp": "2020-10-31T00:00:00",
+        "value": 42250
+      },
+      {
+        "timestamp": "2020-11-30T00:00:00",
+        "sourceTimestamp": "2020-11-30T00:00:00",
+        "value": 43770
+      },
+      {
+        "timestamp": "2020-12-31T00:00:00",
+        "sourceTimestamp": "2020-12-31T00:00:00",
+        "value": 28140
+      },
+      {
+        "timestamp": "2021-01-31T00:00:00",
+        "sourceTimestamp": "2021-01-31T00:00:00",
+        "value": 32200
+      },
+      {
+        "timestamp": "2021-02-28T00:00:00",
+        "sourceTimestamp": "2021-02-28T00:00:00",
+        "value": 24330
+      },
+      {
+        "timestamp": "2021-03-31T00:00:00",
+        "sourceTimestamp": "2021-03-31T00:00:00",
+        "value": 41320
+      },
+      {
+        "timestamp": "2021-04-30T00:00:00",
+        "sourceTimestamp": "2021-04-30T00:00:00",
+        "value": 47170
+      },
+      {
+        "timestamp": "2021-05-31T00:00:00",
+        "sourceTimestamp": "2021-05-31T00:00:00",
+        "value": 57570
+      },
+      {
+        "timestamp": "2021-06-30T00:00:00",
+        "sourceTimestamp": "2021-06-30T00:00:00",
+        "value": 152070
+      },
+      {
+        "timestamp": "2021-07-31T00:00:00",
+        "sourceTimestamp": "2021-07-31T00:00:00",
+        "value": 197070
+      },
+      {
+        "timestamp": "2021-08-31T00:00:00",
+        "sourceTimestamp": "2021-08-31T00:00:00",
+        "value": 67890
+      },
+      {
+        "timestamp": "2021-09-30T00:00:00",
+        "sourceTimestamp": "2021-09-30T00:00:00",
+        "value": 43440
+      },
+      {
+        "timestamp": "2021-10-31T00:00:00",
+        "sourceTimestamp": "2021-10-31T00:00:00",
+        "value": 37910
+      },
+      {
+        "timestamp": "2021-11-30T00:00:00",
+        "sourceTimestamp": "2021-11-30T00:00:00",
+        "value": 30130
+      },
+      {
+        "timestamp": "2021-12-31T00:00:00",
+        "sourceTimestamp": "2021-12-31T00:00:00",
+        "value": 27220
+      },
+      {
+        "timestamp": "2022-01-31T00:00:00",
+        "sourceTimestamp": "2022-01-31T00:00:00",
+        "value": 32990
+      },
+      {
+        "timestamp": "2022-02-28T00:00:00",
+        "sourceTimestamp": "2022-02-28T00:00:00",
+        "value": 34760
+      },
+      {
+        "timestamp": "2022-03-31T00:00:00",
+        "sourceTimestamp": "2022-03-31T00:00:00",
+        "value": 47090
+      },
+      {
+        "timestamp": "2022-04-30T00:00:00",
+        "sourceTimestamp": "2022-04-30T00:00:00",
+        "value": 51480
+      },
+      {
+        "timestamp": "2022-05-31T00:00:00",
+        "sourceTimestamp": "2022-05-31T00:00:00",
+        "value": 60310
+      },
+      {
+        "timestamp": "2022-06-30T00:00:00",
+        "sourceTimestamp": "2022-06-30T00:00:00",
+        "value": 124620
+      },
+      {
+        "timestamp": "2022-07-31T00:00:00",
+        "sourceTimestamp": "2022-07-31T00:00:00",
+        "value": 140600
+      },
+      {
+        "timestamp": "2022-08-31T00:00:00",
+        "sourceTimestamp": "2022-08-31T00:00:00",
+        "value": 149160
+      },
+      {
+        "timestamp": "2022-09-30T00:00:00",
+        "sourceTimestamp": "2022-09-30T00:00:00",
+        "value": 47400
+      },
+      {
+        "timestamp": "2022-10-31T00:00:00",
+        "sourceTimestamp": "2022-10-31T00:00:00",
+        "value": 38170
+      },
+      {
+        "timestamp": "2022-11-30T00:00:00",
+        "sourceTimestamp": "2022-11-30T00:00:00",
+        "value": 34240
+      },
+      {
+        "timestamp": "2022-12-31T00:00:00",
+        "sourceTimestamp": "2022-12-31T00:00:00",
+        "value": 34680
+      },
+      {
+        "timestamp": "2023-01-31T00:00:00",
+        "sourceTimestamp": "2023-01-31T00:00:00",
+        "value": 28980
+      },
+      {
+        "timestamp": "2023-02-28T00:00:00",
+        "sourceTimestamp": "2023-02-28T00:00:00",
+        "value": 27950
+      },
+      {
+        "timestamp": "2023-03-31T00:00:00",
+        "sourceTimestamp": "2023-03-31T00:00:00",
+        "value": 37580
+      },
+      {
+        "timestamp": "2023-04-30T00:00:00",
+        "sourceTimestamp": "2023-04-30T00:00:00",
+        "value": 50310
+      },
+      {
+        "timestamp": "2023-05-31T00:00:00",
+        "sourceTimestamp": "2023-05-31T00:00:00",
+        "value": 70770.00000000009
+      },
+      {
+        "timestamp": "2023-06-30T00:00:00",
+        "sourceTimestamp": "2023-06-30T00:00:00",
+        "value": 130920
+      },
+      {
+        "timestamp": "2023-07-31T00:00:00",
+        "sourceTimestamp": "2023-07-31T00:00:00",
+        "value": 98130
+      },
+      {
+        "timestamp": "2023-08-31T00:00:00",
+        "sourceTimestamp": "2023-08-31T00:00:00",
+        "value": 95120
+      },
+      {
+        "timestamp": "2023-09-30T00:00:00",
+        "sourceTimestamp": "2023-09-30T00:00:00",
+        "value": 62300
+      },
+      {
+        "timestamp": "2023-10-31T00:00:00",
+        "sourceTimestamp": "2023-10-31T00:00:00",
+        "value": 36780
+      },
+      {
+        "timestamp": "2023-11-30T00:00:00",
+        "sourceTimestamp": "2023-11-30T00:00:00",
+        "value": 36780
+      },
+      {
+        "timestamp": "2023-12-31T00:00:00",
+        "sourceTimestamp": "2023-12-31T00:00:00",
+        "value": 30890
+      },
+      {
+        "timestamp": "2024-01-31T00:00:00",
+        "sourceTimestamp": "2024-01-31T00:00:00",
+        "value": 27770
+      },
+      {
+        "timestamp": "2024-02-29T00:00:00",
+        "sourceTimestamp": "2024-02-29T00:00:00",
+        "value": 25190
+      },
+      {
+        "timestamp": "2024-03-31T00:00:00",
+        "sourceTimestamp": "2024-03-31T00:00:00",
+        "value": 30380
+      },
+      {
+        "timestamp": "2024-04-30T00:00:00",
+        "sourceTimestamp": "2024-04-30T00:00:00",
+        "value": 35820
+      },
+      {
+        "timestamp": "2024-05-31T00:00:00",
+        "sourceTimestamp": "2024-05-31T00:00:00",
+        "value": 92550
+      },
+      {
+        "timestamp": "2024-06-30T00:00:00",
+        "sourceTimestamp": "2024-06-30T00:00:00",
+        "value": 115150
+      },
+      {
+        "timestamp": "2024-07-31T00:00:00",
+        "sourceTimestamp": "2024-07-31T00:00:00",
+        "value": 137370
+      },
+      {
+        "timestamp": "2024-08-31T00:00:00",
+        "sourceTimestamp": "2024-08-31T00:00:00",
+        "value": 116950
+      },
+      {
+        "timestamp": "2024-09-30T00:00:00",
+        "sourceTimestamp": "2024-09-30T00:00:00",
+        "value": 77400
+      },
+      {
+        "timestamp": "2024-10-31T00:00:00",
+        "sourceTimestamp": "2024-10-31T00:00:00",
+        "value": 36510
+      },
+      {
+        "timestamp": "2024-11-30T00:00:00",
+        "sourceTimestamp": "2024-11-30T00:00:00",
+        "value": 15640
+      },
+      {
+        "timestamp": "2024-12-31T00:00:00",
+        "sourceTimestamp": "2024-12-31T00:00:00",
+        "value": 13810
+      },
+      {
+        "timestamp": "2025-01-31T00:00:00",
+        "sourceTimestamp": "2025-01-31T00:00:00",
+        "value": 15750
+      },
+      {
+        "timestamp": "2025-02-28T00:00:00",
+        "sourceTimestamp": "2025-02-28T00:00:00",
+        "value": 18110
+      },
+      {
+        "timestamp": "2025-03-31T00:00:00",
+        "sourceTimestamp": "2025-03-31T00:00:00",
+        "value": 33140
+      },
+      {
+        "timestamp": "2025-04-30T00:00:00",
+        "sourceTimestamp": "2025-04-30T00:00:00",
+        "value": 48850
+      },
+      {
+        "timestamp": "2025-05-31T00:00:00",
+        "sourceTimestamp": "2025-05-31T00:00:00",
+        "value": 60150
+      },
+      {
+        "timestamp": "2025-06-30T00:00:00",
+        "sourceTimestamp": "2025-06-30T00:00:00",
+        "value": 63780
+      },
+      {
+        "timestamp": "2025-07-31T00:00:00",
+        "sourceTimestamp": "2025-07-31T00:00:00",
+        "value": 175060
+      },
+      {
+        "timestamp": "2025-08-31T00:00:00",
+        "sourceTimestamp": "2025-08-31T00:00:00",
+        "value": 96100
+      },
+      {
+        "timestamp": "2025-09-30T00:00:00",
+        "sourceTimestamp": "2025-09-30T00:00:00",
+        "value": 53460
+      },
+      {
+        "timestamp": "2025-10-31T00:00:00",
+        "sourceTimestamp": "2025-10-31T00:00:00",
+        "value": 30480
+      },
+      {
+        "timestamp": "2025-11-30T00:00:00",
+        "sourceTimestamp": "2025-11-30T00:00:00",
+        "value": 20030
+      },
+      {
+        "timestamp": "2025-12-31T00:00:00",
+        "sourceTimestamp": "2025-12-31T00:00:00",
+        "value": 16310
+      },
+      {
+        "timestamp": "2026-01-31T00:00:00",
+        "sourceTimestamp": "2026-01-31T00:00:00",
+        "value": 15070
+      },
+      {
+        "timestamp": "2026-02-28T00:00:00",
+        "sourceTimestamp": "2026-02-28T00:00:00",
+        "value": 20430
+      },
+      {
+        "timestamp": "2026-03-31T00:00:00",
+        "sourceTimestamp": "2026-03-31T00:00:00",
+        "value": 34510
+      },
+      {
+        "timestamp": "2026-04-30T00:00:00",
+        "sourceTimestamp": "2026-04-30T00:00:00",
+        "value": 44390
+      },
+      {
+        "timestamp": "2026-05-31T00:00:00",
+        "sourceTimestamp": "2026-05-31T00:00:00",
+        "value": 60460
+      }
+    ],
+    "latestReading": {
+      "timestamp": "2026-05-31T00:00:00",
+      "sourceTimestamp": "2026-05-31T00:00:00",
+      "value": 60460
+    },
+    "qualityNotices": []
+  }
+}

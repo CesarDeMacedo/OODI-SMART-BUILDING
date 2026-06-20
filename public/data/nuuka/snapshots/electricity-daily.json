@@ -1,0 +1,174 @@
+{
+  "source": {
+    "endpoint": "https://helsinki-openapi.nuuka.cloud/api/v1.0/EnergyData/Daily/ListByProperty?Record=LocationName&SearchString=4669+Oodi+Helsingin+keskustakirjasto&ReportingGroup=Electricity&StartTime=2026-04-18&EndTime=2026-06-19",
+    "generatedAt": "2026-06-20T15:35:11.201Z",
+    "propertyCode": "091-002-0014-0005",
+    "utility": "electricity",
+    "granularity": "daily"
+  },
+  "series": {
+    "utility": "electricity",
+    "reportingGroup": "Electricity",
+    "displayName": "Electricity",
+    "granularity": "daily",
+    "unit": "kWh",
+    "points": [
+      {
+        "timestamp": "2026-04-18T00:00:00",
+        "sourceTimestamp": "2026-04-18T00:00:00",
+        "value": 4271.707
+      },
+      {
+        "timestamp": "2026-04-19T00:00:00",
+        "sourceTimestamp": "2026-04-19T00:00:00",
+        "value": 4061.274000000001
+      },
+      {
+        "timestamp": "2026-04-20T00:00:00",
+        "sourceTimestamp": "2026-04-20T00:00:00",
+        "value": 4279.067000000001
+      },
+      {
+        "timestamp": "2026-04-21T00:00:00",
+        "sourceTimestamp": "2026-04-21T00:00:00",
+        "value": 4521.825
+      },
+      {
+        "timestamp": "2026-04-22T00:00:00",
+        "sourceTimestamp": "2026-04-22T00:00:00",
+        "value": 4605.54
+      },
+      {
+        "timestamp": "2026-04-23T00:00:00",
+        "sourceTimestamp": "2026-04-23T00:00:00",
+        "value": 4533.4839999999995
+      },
+      {
+        "timestamp": "2026-04-24T00:00:00",
+        "sourceTimestamp": "2026-04-24T00:00:00",
+        "value": 4546.024
+      },
+      {
+        "timestamp": "2026-04-25T00:00:00",
+        "sourceTimestamp": "2026-04-25T00:00:00",
+        "value": 4291.611000000001
+      },
+      {
+        "timestamp": "2026-04-26T00:00:00",
+        "sourceTimestamp": "2026-04-26T00:00:00",
+        "value": 4188.360000000001
+      },
+      {
+        "timestamp": "2026-04-27T00:00:00",
+        "sourceTimestamp": "2026-04-27T00:00:00",
+        "value": 4375.037
+      },
+      {
+        "timestamp": "2026-04-28T00:00:00",
+        "sourceTimestamp": "2026-04-28T00:00:00",
+        "value": 4601.482
+      },
+      {
+        "timestamp": "2026-04-29T00:00:00",
+        "sourceTimestamp": "2026-04-29T00:00:00",
+        "value": 4707.607
+      },
+      {
+        "timestamp": "2026-04-30T00:00:00",
+        "sourceTimestamp": "2026-04-30T00:00:00",
+        "value": 4372.031999999999
+      },
+      {
+        "timestamp": "2026-05-01T00:00:00",
+        "sourceTimestamp": "2026-05-01T00:00:00",
+        "value": 3759.0370000000003
+      },
+      {
+        "timestamp": "2026-05-02T00:00:00",
+        "sourceTimestamp": "2026-05-02T00:00:00",
+        "value": 4416.857000000001
+      },
+      {
+        "timestamp": "2026-05-03T00:00:00",
+        "sourceTimestamp": "2026-05-03T00:00:00",
+        "value": 4341.226000000001
+      },
+      {
+        "timestamp": "2026-05-04T00:00:00",
+        "sourceTimestamp": "2026-05-04T00:00:00",
+        "value": 4561.697000000001
+      },
+      {
+        "timestamp": "2026-05-05T00:00:00",
+        "sourceTimestamp": "2026-05-05T00:00:00",
+        "value": 4517.852
+      },
+      {
+        "timestamp": "2026-05-06T00:00:00",
+        "sourceTimestamp": "2026-05-06T00:00:00",
+        "value": 4416.938999999998
+      },
+      {
+        "timestamp": "2026-05-07T00:00:00",
+        "sourceTimestamp": "2026-05-07T00:00:00",
+        "value": 4533.183
+      },
+      {
+        "timestamp": "2026-05-08T00:00:00",
+        "sourceTimestamp": "2026-05-08T00:00:00",
+        "value": 4727.185000000002
+      },
+      {
+        "timestamp": "2026-05-09T00:00:00",
+        "sourceTimestamp": "2026-05-09T00:00:00",
+        "value": 4371.1900000000005
+      },
+      {
+        "timestamp": "2026-05-10T00:00:00",
+        "sourceTimestamp": "2026-05-10T00:00:00",
+        "value": 4260.356
+      },
+      {
+        "timestamp": "2026-05-11T00:00:00",
+        "sourceTimestamp": "2026-05-11T00:00:00",
+        "value": 4623.436999999999
+      },
+      {
+        "timestamp": "2026-05-12T00:00:00",
+        "sourceTimestamp": "2026-05-12T00:00:00",
+        "value": 4435.687000000001
+      },
+      {
+        "timestamp": "2026-05-13T00:00:00",
+        "sourceTimestamp": "2026-05-13T00:00:00",
+        "value": 4343.772000000001
+      },
+      {
+        "timestamp": "2026-05-14T00:00:00",
+        "sourceTimestamp": "2026-05-14T00:00:00",
+        "value": 3879.581
+      },
+      {
+        "timestamp": "2026-05-15T00:00:00",
+        "sourceTimestamp": "2026-05-15T00:00:00",
+        "value": 4247.318000000001
+      },
+      {
+        "timestamp": "2026-05-16T00:00:00",
+        "sourceTimestamp": "2026-05-16T00:00:00",
+        "value": 4107.988999999999
+      },
+      {
+        "timestamp": "2026-05-17T00:00:00",
+        "sourceTimestamp": "2026-05-17T00:00:00",
+        "value": 278.062
+      }
+    ],
+    "latestReading": {
+      "timestamp": "2026-05-17T00:00:00",
+      "sourceTimestamp": "2026-05-17T00:00:00",
+      "value": 278.062
+    },
+    "qualityNotices": []
+  }
+}

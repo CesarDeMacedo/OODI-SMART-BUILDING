@@ -1,0 +1,79 @@
+{
+  "generatedAt": "2026-06-19T23:15:00.996Z",
+  "endpoint": "https://helsinki-openapi.nuuka.cloud/api/v1.0/Property/List?Customer=Helsinki",
+  "status": 200,
+  "totalProperties": 1809,
+  "terms": [
+    "Oodi",
+    "Keskustakirjasto",
+    "Helsingin keskustakirjasto",
+    "Töölönlahdenkatu 4",
+    "Toolonlahdenkatu 4"
+  ],
+  "matches": [
+    {
+      "locationName": "4669 Oodi Helsingin keskustakirjasto",
+      "propertyName": "4669 Oodi Helsingin keskustakirjasto",
+      "propertyCode": "091-002-0014-0005"
+    }
+  ],
+  "detailedMatches": [
+    {
+      "locationName": "4669 Oodi Helsingin keskustakirjasto",
+      "propertyName": "4669 Oodi Helsingin keskustakirjasto",
+      "propertyCode": "091-002-0014-0005",
+      "yearOfIntroduction": "2018-01-01T00:00:00",
+      "purposeOfUse": "G kirjasto",
+      "totalArea": 39817,
+      "heatedArea": 14643,
+      "volume": 108260,
+      "buildingType": "LibraryMuseumExhibitionHall",
+      "latitude": "60.1738",
+      "longitude": "24.9381",
+      "reportingGroups": [
+        {
+          "name": "DistrictCooling",
+          "energyType": "DistrictCooling",
+          "isTopGroup": true
+        },
+        {
+          "name": "Electricity",
+          "energyType": "Electricity",
+          "isTopGroup": true
+        },
+        {
+          "name": "Heat",
+          "energyType": "Heating",
+          "isTopGroup": true
+        },
+        {
+          "name": "OtherMeasurements",
+          "energyType": "",
+          "isTopGroup": true
+        },
+        {
+          "name": "Water",
+          "energyType": "Water",
+          "isTopGroup": true
+        }
+      ],
+      "buildings": [
+        {
+          "locationName": "4669 Oodi Helsingin keskustakirjasto, 63682 ",
+          "propertyName": "4669 Oodi Helsingin keskustakirjasto, 63682 ",
+          "propertyCode": "091-002-0014-0005",
+          "buildingCode": "103534449X",
+          "yearOfIntroduction": "2018-01-01T00:00:00",
+          "purposeOfUse": "G kirjasto",
+          "totalArea": 39817,
+          "heatedArea": 14643,
+          "volume": 108260,
+          "buildingType": "LibraryMuseumExhibitionHall",
+          "longitude": "24.9380282",
+          "latitude": "60.1742416",
+          "reportingGroups": []
+        }
+      ]
+    }
+  ]
+}
