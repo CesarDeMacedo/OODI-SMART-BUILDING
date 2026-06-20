@@ -1,4 +1,7 @@
 import type { UtilityDataError } from '../utilities/utilitySeries'
+import { oodiConfig } from '../../config/oodi'
+import { utilityDefinitions } from '../utilities/utilityDefinitions'
+import { NUUKA_BASE_URL } from './nuukaEndpoints'
 
 export type NuukaJsonResult =
   | { ok: true; data: unknown }
@@ -12,6 +15,48 @@ export interface FetchNuukaJsonOptions {
 
 function isRetryableStatus(status: number) {
   return status === 429 || status === 502 || status === 503 || status === 504
+}
+
+function isConfirmedNuukaNoData404(endpoint: string, body: string) {
+  let url: URL
+  try {
+    url = new URL(endpoint)
+  } catch {
+    return false
+  }
+
+  const baseUrl = new URL(NUUKA_BASE_URL)
+  const supportedReportingGroups: ReadonlySet<string> = new Set(
+    utilityDefinitions.map((utility) => utility.reportingGroup),
+  )
+
+  const isConfirmedEnergyRequest =
+    url.origin === baseUrl.origin &&
+    /^\/api\/v1\.0\/EnergyData\/(Hourly|Daily|Monthly)\/ListByProperty$/.test(url.pathname) &&
+    url.searchParams.get('Record') === 'LocationName' &&
+    url.searchParams.get('SearchString') === oodiConfig.nuuka.locationName &&
+    supportedReportingGroups.has(url.searchParams.get('ReportingGroup') ?? '') &&
+    /^\d{4}-\d{2}-\d{2}$/.test(url.searchParams.get('StartTime') ?? '') &&
+    /^\d{4}-\d{2}-\d{2}$/.test(url.searchParams.get('EndTime') ?? '')
+
+  if (!isConfirmedEnergyRequest) {
+    return false
+  }
+
+  if (body.trim() === '') {
+    return true
+  }
+
+  try {
+    const payload = JSON.parse(body) as { errorCode?: unknown; errorNote?: unknown }
+    return (
+      payload.errorCode === 'MissingSettingsException' &&
+      typeof payload.errorNote === 'string' &&
+      payload.errorNote.toLowerCase().includes('no data found')
+    )
+  } catch {
+    return false
+  }
 }
 
 export async function fetchNuukaJson(
@@ -41,6 +86,13 @@ export async function fetchNuukaJson(
   try {
     const response = await fetcher(endpoint, { signal: controller.signal })
     const text = await response.text()
+
+    if (response.status === 404 && isConfirmedNuukaNoData404(String(endpoint), text)) {
+      return {
+        ok: true,
+        data: [],
+      }
+    }
 
     if (!response.ok) {
       return {

@@ -58,6 +58,82 @@
   margin-bottom: 16px;
 }
 
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: end;
+}
+
+.controls label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.controls select,
+.controls button {
+  min-height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.controls select {
+  min-width: 190px;
+  padding: 0 10px;
+}
+
+.controls button {
+  padding: 0 14px;
+  cursor: pointer;
+}
+
+.state {
+  margin: 14px 0 0;
+  color: var(--muted);
+}
+
+.notice {
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--code-bg);
+}
+
+.notice p,
+.error p,
+.empty {
+  margin: 4px 0 0;
+}
+
+.metadata {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0 0;
+}
+
+.metadata div {
+  min-width: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+}
+
+.metadata dt {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.metadata dd {
+  margin: 3px 0 0;
+  overflow-wrap: anywhere;
+}
+
 .groups {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -83,6 +159,10 @@
   color: #b42318;
 }
 
+.empty {
+  color: var(--muted);
+}
+
 pre {
   max-height: 420px;
   overflow: auto;
@@ -97,7 +177,8 @@ pre {
 
 @media (max-width: 860px) {
   .status-grid,
-  .groups {
+  .groups,
+  .metadata {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -109,7 +190,8 @@ pre {
   }
 
   .status-grid,
-  .groups {
+  .groups,
+  .metadata {
     grid-template-columns: 1fr;
   }
 }

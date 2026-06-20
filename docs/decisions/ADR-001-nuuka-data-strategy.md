@@ -33,6 +33,8 @@ Requested period and effective returned period remain separate. A user or produc
 
 Fallback preserves the requested granularity. If a current requested window is empty, the implementation uses a monthly historical probe only to find the latest available anchor, then requests the original hourly, daily, or monthly granularity around that anchor. It never substitutes a different utility or fabricates values.
 
+Nuuka may return HTTP 404 for a confirmed Oodi energy endpoint when no records exist for the requested window. The observed browser-visible payload is `MissingSettingsException` with an error note stating that no data was found; some tooling may surface the body as empty. Stage 2 classifies this narrowly as an empty row result only when the URL matches the Nuuka energy endpoint pattern, the verified Oodi location query, a supported reporting group, valid date query parameters, and either the confirmed no-data payload or an empty body. Unrelated 404 responses remain typed HTTP errors.
+
 ### No interpolation or fabricated values
 
 Missing utility values are not interpolated, extrapolated, cloned from another period, or filled with placeholders. Empty valid API responses remain empty. Snapshot files must contain authentic Nuuka-derived data only.

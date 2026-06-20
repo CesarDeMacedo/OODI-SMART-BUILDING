@@ -1,18 +1,16 @@
 import { oodiConfig } from '../../config/oodi'
 import { getRequestedWindowForPeriod } from '../time/helsinkiCivilDate'
-import { buildNuukaEnergyUrl } from '../nuuka/nuukaEndpoints'
 import { FALLBACK_STRATEGY_VERSION, createCompletedCacheKey, createNuukaMemoryCache } from '../nuuka/nuukaCache'
 import { resolveNuukaSeries } from '../nuuka/nuukaFallback'
 import { canUseSnapshotForError, loadNuukaSnapshotSeries } from '../nuuka/nuukaSnapshots'
 import type {
-  NuukaReportingGroup,
   UtilityDataError,
   UtilityRepository,
+  UtilitySeries,
   UtilitySeriesRequest,
   UtilitySeriesResult,
 } from './utilitySeries'
 import { getPeriodDefinition } from './utilityPeriods'
-import { getUtilityDefinition } from './utilityDefinitions'
 import { fetchNuukaJson } from '../nuuka/nuukaClient'
 
 type FetchPayloadRequest = {
@@ -20,6 +18,7 @@ type FetchPayloadRequest = {
   granularity: ReturnType<typeof getPeriodDefinition>['granularity']
   start: string
   end: string
+  endpoint: string
 }
 
 function isUtilityDataError(error: unknown): error is UtilityDataError {
@@ -54,6 +53,44 @@ function abortedResult(): UtilitySeriesResult {
       retryable: false,
     },
   }
+}
+
+function seriesFromMemoryCache(series: UtilitySeries): UtilitySeries {
+  return {
+    ...series,
+    points: [...series.points],
+    latestReading: series.latestReading ? { ...series.latestReading } : null,
+    period: {
+      ...series.period,
+      requestedWindow: { ...series.period.requestedWindow },
+      effectiveWindow: series.period.effectiveWindow
+        ? { ...series.period.effectiveWindow }
+        : null,
+    },
+    provenance: {
+      ...series.provenance,
+      origin: 'memory-cache',
+    },
+    qualityNotices: series.qualityNotices.map((notice) => ({ ...notice })),
+  }
+}
+
+function markResultFromMemoryCache(result: UtilitySeriesResult): UtilitySeriesResult {
+  if (result.status === 'success') {
+    return {
+      ...result,
+      series: seriesFromMemoryCache(result.series),
+    }
+  }
+
+  if (result.status === 'empty') {
+    return {
+      ...result,
+      series: seriesFromMemoryCache(result.series),
+    }
+  }
+
+  return result
 }
 
 function withCallerAbort(
@@ -98,19 +135,13 @@ export function createUtilityRepository(
   const cache = createNuukaMemoryCache<UtilitySeriesResult>({
     ttlMs: 10 * 60 * 1000,
     emptyTtlMs: 2 * 60 * 1000,
+    onCacheHit: markResultFromMemoryCache,
   })
   const now = options.now ?? (() => new Date())
   const retrievedAt = options.retrievedAt ?? (() => new Date().toISOString())
 
   async function defaultFetchPayload(request: FetchPayloadRequest) {
-    const definition = getUtilityDefinition(request.utility)
-    const endpoint = buildNuukaEnergyUrl({
-      reportingGroup: definition.reportingGroup as NuukaReportingGroup,
-      granularity: request.granularity,
-      start: request.start,
-      end: request.end,
-    })
-    const result = await fetchNuukaJson(endpoint)
+    const result = await fetchNuukaJson(request.endpoint)
 
     if (!result.ok) {
       throw result.error

@@ -26,9 +26,10 @@ export function createCompletedCacheKey(parts: CompletedCacheKeyParts) {
   ].join('|')
 }
 
-export interface NuukaMemoryCacheOptions {
+export interface NuukaMemoryCacheOptions<T> {
   ttlMs: number
   emptyTtlMs: number
+  onCacheHit?: (value: T) => T
 }
 
 type CacheEntry<T> = {
@@ -36,7 +37,7 @@ type CacheEntry<T> = {
   expiresAt: number
 }
 
-export function createNuukaMemoryCache<T>(options: NuukaMemoryCacheOptions) {
+export function createNuukaMemoryCache<T>(options: NuukaMemoryCacheOptions<T>) {
   const completed = new Map<string, CacheEntry<T>>()
   const inFlight = new Map<string, Promise<T>>()
 
@@ -63,7 +64,7 @@ export function createNuukaMemoryCache<T>(options: NuukaMemoryCacheOptions) {
       if (refresh !== 'force') {
         const cached = getCached(key, now)
         if (cached !== null) {
-          return cached
+          return options.onCacheHit ? options.onCacheHit(cached) : cached
         }
       }
 

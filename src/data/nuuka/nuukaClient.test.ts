@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import { fetchNuukaJson } from './nuukaClient'
+import { buildNuukaEnergyUrl } from './nuukaEndpoints'
 
 describe('Nuuka client', () => {
   it('maps successful JSON responses', async () => {
@@ -27,6 +28,60 @@ describe('Nuuka client', () => {
     expect(result.ok).toBe(false)
     if (result.ok) throw new Error('expected error')
     expect(result.error).toMatchObject({ code: 'HTTP', retryable: true, statusCode: 503 })
+  })
+
+  it('maps confirmed Nuuka energy no-data 404 responses to an empty row payload', async () => {
+    const endpoint = buildNuukaEnergyUrl({
+      reportingGroup: 'Electricity',
+      granularity: 'daily',
+      start: '2026-05-21',
+      end: '2026-06-20',
+    })
+    const fetcher = vi.fn(
+      async () =>
+        new Response(
+          JSON.stringify({
+            errorNote: 'No data found with the given search parameters',
+            errorCode: 'MissingSettingsException',
+          }),
+          { status: 404 },
+        ),
+    )
+
+    await expect(fetchNuukaJson(endpoint, { fetcher })).resolves.toEqual({
+      ok: true,
+      data: [],
+    })
+  })
+
+  it('does not treat non-no-data Nuuka energy 404 payloads as empty rows', async () => {
+    const endpoint = buildNuukaEnergyUrl({
+      reportingGroup: 'Electricity',
+      granularity: 'daily',
+      start: '2026-05-21',
+      end: '2026-06-20',
+    })
+    const fetcher = vi.fn(
+      async () =>
+        new Response(JSON.stringify({ errorCode: 'RouteNotFound' }), {
+          status: 404,
+        }),
+    )
+
+    const result = await fetchNuukaJson(endpoint, { fetcher })
+
+    expect(result.ok).toBe(false)
+    if (result.ok) throw new Error('expected error')
+    expect(result.error).toMatchObject({ code: 'HTTP', statusCode: 404 })
+  })
+
+  it('keeps unrelated 404 responses as typed HTTP errors', async () => {
+    const fetcher = vi.fn(async () => new Response('', { status: 404 }))
+    const result = await fetchNuukaJson('https://example.test/missing', { fetcher })
+
+    expect(result.ok).toBe(false)
+    if (result.ok) throw new Error('expected error')
+    expect(result.error).toMatchObject({ code: 'HTTP', retryable: false, statusCode: 404 })
   })
 
   it('maps request timeouts to a typed timeout error', async () => {

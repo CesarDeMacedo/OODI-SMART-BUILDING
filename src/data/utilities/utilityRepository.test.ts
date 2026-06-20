@@ -20,7 +20,32 @@ describe('utility repository', () => {
     expect(result.series.latestReading?.sourceTimestamp).toBe('2026-06-18T00:00:00')
   })
 
-  it('reuses identical cached repository requests', async () => {
+  it('reuses identical cached repository requests and labels the second result as memory cache', async () => {
+    const fetchPayload = vi.fn(async () => [
+      { timestamp: '2026-06-18T00:00:00', value: 2, unit: 'M3' },
+    ])
+    const repository = createUtilityRepository({
+      fetchPayload,
+      now: () => new Date('2026-06-20T12:00:00Z'),
+      retrievedAt: () => '2026-06-20T12:00:00',
+    })
+
+    const first = await repository.getSeries({ utility: 'water', period: '30d' })
+    const second = await repository.getSeries({ utility: 'water', period: '30d' })
+
+    expect(fetchPayload).toHaveBeenCalledTimes(1)
+    expect(first.status).toBe('success')
+    expect(second.status).toBe('success')
+    if (first.status !== 'success' || second.status !== 'success') {
+      throw new Error('expected success')
+    }
+    expect(first.series.provenance.origin).toBe('network')
+    expect(second.series.provenance.origin).toBe('memory-cache')
+    expect(second.series.provenance.retrievedAt).toBe(first.series.provenance.retrievedAt)
+    expect(second.series.latestReading?.sourceTimestamp).toBe(first.series.latestReading?.sourceTimestamp)
+  })
+
+  it('labels force refresh as network after a completed cache hit', async () => {
     const fetchPayload = vi.fn(async () => [
       { timestamp: '2026-06-18T00:00:00', value: 2, unit: 'M3' },
     ])
@@ -32,8 +57,16 @@ describe('utility repository', () => {
 
     await repository.getSeries({ utility: 'water', period: '30d' })
     await repository.getSeries({ utility: 'water', period: '30d' })
+    const refreshed = await repository.getSeries({
+      utility: 'water',
+      period: '30d',
+      refresh: 'force',
+    })
 
-    expect(fetchPayload).toHaveBeenCalledTimes(1)
+    expect(fetchPayload).toHaveBeenCalledTimes(2)
+    expect(refreshed.status).toBe('success')
+    if (refreshed.status !== 'success') throw new Error('expected success')
+    expect(refreshed.series.provenance.origin).toBe('network')
   })
 
   it('returns typed errors instead of throwing network failures', async () => {

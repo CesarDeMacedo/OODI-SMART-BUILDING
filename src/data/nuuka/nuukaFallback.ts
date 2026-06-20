@@ -1,6 +1,7 @@
 import { oodiConfig } from '../../config/oodi'
 import { getUtilityDefinition } from '../utilities/utilityDefinitions'
 import { getPeriodDefinition, selectLatestPoints } from '../utilities/utilityPeriods'
+import { buildNuukaEnergyUrl } from './nuukaEndpoints'
 import type {
   DataQualityNotice,
   FallbackReason,
@@ -20,6 +21,7 @@ type FetchPayloadRequest = {
   granularity: Granularity
   start: string
   end: string
+  endpoint: string
 }
 
 export interface ResolveNuukaSeriesRequest {
@@ -32,6 +34,13 @@ export interface ResolveNuukaSeriesRequest {
 
 function addNotice(notices: DataQualityNotice[], notice: DataQualityNotice) {
   notices.push(notice)
+}
+
+function emptyRequestedWindowNotice(): DataQualityNotice {
+  return {
+    code: 'EMPTY_REQUESTED_WINDOW',
+    message: 'No readings were returned for the requested Nuuka window.',
+  }
 }
 
 function addDays(dateString: string, days: number) {
@@ -84,6 +93,8 @@ function buildSeries(args: {
   isFallback: boolean
   fallbackReason: FallbackReason
   fallbackNotice?: string
+  endpoint: string | null
+  extraNotices?: DataQualityNotice[]
 }): UtilitySeries {
   const definition = getUtilityDefinition(args.utility)
   const periodDefinition = getPeriodDefinition(args.period)
@@ -93,7 +104,7 @@ function buildSeries(args: {
     rows: args.rows,
   })
   const points = selectLatestPoints(normalized.points, periodDefinition.intendedRecordCount)
-  const qualityNotices = [...normalized.qualityNotices]
+  const qualityNotices = [...normalized.qualityNotices, ...(args.extraNotices ?? [])]
 
   if (args.isFallback) {
     addNotice(qualityNotices, {
@@ -132,7 +143,7 @@ function buildSeries(args: {
       classification: 'real-public-building-data',
       provider: 'Nuuka',
       dataset: 'Helsinki public building energy data',
-      endpoint: null,
+      endpoint: args.endpoint,
       retrievedAt: args.retrievedAt,
       origin: 'network',
     },
@@ -144,12 +155,27 @@ export async function resolveNuukaSeries(
   request: ResolveNuukaSeriesRequest,
 ): Promise<UtilitySeriesResult> {
   const periodDefinition = getPeriodDefinition(request.period)
+  const definition = getUtilityDefinition(request.utility)
+  const endpointFor = (granularity: Granularity, start: string, end: string) =>
+    buildNuukaEnergyUrl({
+      reportingGroup: definition.reportingGroup,
+      granularity,
+      start,
+      end,
+    })
+
+  const initialEndpoint = endpointFor(
+    periodDefinition.granularity,
+    request.requestedWindow.start,
+    request.requestedWindow.end,
+  )
   const initialRows = await fetchRows(
     {
       utility: request.utility,
       granularity: periodDefinition.granularity,
       start: request.requestedWindow.start,
       end: request.requestedWindow.end,
+      endpoint: initialEndpoint,
     },
     request.fetchPayload,
   )
@@ -164,17 +190,24 @@ export async function resolveNuukaSeries(
       retrievedAt: request.retrievedAt,
       isFallback: false,
       fallbackReason: null,
+      endpoint: initialEndpoint,
     })
 
     return { status: 'success', series }
   }
 
+  const monthlyEndpoint = endpointFor(
+    'monthly',
+    oodiConfig.nuuka.yearOfIntroduction.slice(0, 10),
+    request.requestedWindow.end,
+  )
   const monthlyRows = await fetchRows(
     {
       utility: request.utility,
       granularity: 'monthly',
       start: oodiConfig.nuuka.yearOfIntroduction.slice(0, 10),
       end: request.requestedWindow.end,
+      endpoint: monthlyEndpoint,
     },
     request.fetchPayload,
   )
@@ -190,6 +223,7 @@ export async function resolveNuukaSeries(
     retrievedAt: request.retrievedAt,
     isFallback: false,
     fallbackReason: null,
+    endpoint: monthlyEndpoint,
   })
   const anchor = monthly.latestReading?.timestamp
 
@@ -203,6 +237,8 @@ export async function resolveNuukaSeries(
       retrievedAt: request.retrievedAt,
       isFallback: false,
       fallbackReason: null,
+      endpoint: initialEndpoint,
+      extraNotices: [emptyRequestedWindowNotice()],
     })
 
     return {
@@ -213,12 +249,18 @@ export async function resolveNuukaSeries(
   }
 
   const fallbackWindow = fallbackWindowAround(anchor)
+  const fallbackEndpoint = endpointFor(
+    periodDefinition.granularity,
+    fallbackWindow.start,
+    fallbackWindow.end,
+  )
   const fallbackRows = await fetchRows(
     {
       utility: request.utility,
       granularity: periodDefinition.granularity,
       start: fallbackWindow.start,
       end: fallbackWindow.end,
+      endpoint: fallbackEndpoint,
     },
     request.fetchPayload,
   )
@@ -232,6 +274,8 @@ export async function resolveNuukaSeries(
     isFallback: fallbackRows.length > 0,
     fallbackReason: fallbackRows.length > 0 ? 'requested-window-empty' : null,
     fallbackNotice: `The requested window was empty; same-granularity fallback used around latest monthly timestamp ${anchor}.`,
+    endpoint: fallbackRows.length > 0 ? fallbackEndpoint : initialEndpoint,
+    extraNotices: [emptyRequestedWindowNotice()],
   })
 
   if (fallbackRows.length === 0) {
