@@ -9,4 +9,10 @@ describe('oodi config', () => {
     expect(oodiConfig.source.label).toContain('Nuuka Open API')
     expect(oodiConfig.source.label).not.toMatch(/\blive\b/i)
   })
+
+  it('derives weather coordinates from the central Oodi location configuration', () => {
+    expect(oodiConfig.weather.latitude).toBe(Number(oodiConfig.nuuka.latitude))
+    expect(oodiConfig.weather.longitude).toBe(Number(oodiConfig.nuuka.longitude))
+    expect(oodiConfig.weather.timezone).toBe('Europe/Helsinki')
+  })
 })
