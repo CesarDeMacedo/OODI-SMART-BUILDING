@@ -1,10 +1,11 @@
 :root {
-  --bg: #f7f8fa;
-  --surface: #ffffff;
-  --text: #172033;
-  --muted: #667085;
-  --border: #d9dee8;
-  --code-bg: #eef2f7;
+  --bg: #06111f;
+  --surface: rgba(10, 29, 48, 0.78);
+  --text: #f5f7fb;
+  --muted: #a9b5c7;
+  --border: rgba(207, 220, 237, 0.18);
+  --code-bg: rgba(255, 255, 255, 0.08);
+  --accent: #ffb000;
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, 'Liberation Mono', monospace;
 
@@ -28,19 +29,45 @@ body {
 
 h1,
 h2,
-p {
+h3,
+p,
+figure {
   margin-top: 0;
 }
 
 h1 {
-  margin-bottom: 12px;
-  font-size: clamp(32px, 5vw, 52px);
-  line-height: 1.05;
+  margin-bottom: 14px;
+  font-size: clamp(38px, 6vw, 92px);
+  font-weight: 500;
+  line-height: 1;
 }
 
 h2 {
   margin-bottom: 8px;
-  font-size: 20px;
+  font-size: 24px;
+  font-weight: 550;
+}
+
+h3 {
+  margin-bottom: 6px;
+  font-size: 17px;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+button,
+select,
+a {
+  font: inherit;
+}
+
+button:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 code {
