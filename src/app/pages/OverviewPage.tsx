@@ -47,11 +47,12 @@ export function OverviewPage() {
             <h1>Oodi</h1>
             <p>{oodiConfig.address}</p>
             <p>
-              Public-building intelligence prototype combining verified utility data,
-              current weather context, and conceptual operational communication.
+              Executive summary of public utility data, current weather context,
+              and clearly labelled conceptual intelligence.
             </p>
             <div className="classification-row">
               <ClassificationBadge kind="public-utility" label={classificationLabels['public-utility'].label} />
+              <ClassificationBadge kind="current-weather" label={classificationLabels['current-weather'].label} />
               <ClassificationBadge kind="conceptual" label={classificationLabels.conceptual.label} />
             </div>
           </div>
@@ -84,6 +85,8 @@ export function OverviewPage() {
         {utilityDefinitions.map((definition) => (
           <button
             className="utility-grid__button"
+            data-control="utility-summary"
+            data-utility={definition.id}
             key={definition.id}
             onClick={() => setSelectedUtility(definition.id)}
             type="button"
@@ -105,17 +108,21 @@ export function OverviewPage() {
               <span className="eyebrow">Resource Performance</span>
               <h2>{selectedDefinition?.displayName ?? 'Utility'} summary</h2>
             </div>
-            <select value={selectedPeriod} onChange={(event) => setSelectedPeriod(event.target.value as ProductPeriod)}>
+            <select
+              data-control="period-selector"
+              value={selectedPeriod}
+              onChange={(event) => setSelectedPeriod(event.target.value as ProductPeriod)}
+            >
               {periodOptions.map((option) => (
                 <option key={option.value} value={option.value}>{option.label}</option>
               ))}
             </select>
           </div>
-          <MiniChart path={getChartPath(selectedSeries)} />
+          <MiniChart path={getChartPath(selectedSeries)} utility={selectedUtility} />
           <div className="metric-grid">
-            <MetricCard label="Average" value={formatMetricValue(metrics.average, selectedSeries?.unit ?? '')} detail={getPeriodLabel(selectedPeriod)} />
-            <MetricCard label="Peak" value={formatMetricValue(metrics.peak?.value, selectedSeries?.unit ?? '')} detail={metrics.peak?.timestamp ?? 'n/a'} />
-            <MetricCard label="Latest" value={formatMetricValue(metrics.latest?.value, selectedSeries?.unit ?? '')} detail={metrics.latest?.timestamp ?? 'n/a'} />
+            <MetricCard utility={selectedUtility} label="Average" value={formatMetricValue(metrics.average, selectedSeries?.unit ?? '')} detail={getPeriodLabel(selectedPeriod)} />
+            <MetricCard utility={selectedUtility} label="Peak" value={formatMetricValue(metrics.peak?.value, selectedSeries?.unit ?? '')} detail={metrics.peak?.timestamp ?? 'n/a'} />
+            <MetricCard utility={selectedUtility} label="Latest" value={formatMetricValue(metrics.latest?.value, selectedSeries?.unit ?? '')} detail={metrics.latest?.timestamp ?? 'n/a'} />
           </div>
           <dl className="metadata-grid">
             <div><dt>Requested period</dt><dd>{selectedSeries?.period.requestedPeriod ?? selectedPeriod}</dd></div>
@@ -128,7 +135,11 @@ export function OverviewPage() {
           <span className="eyebrow">Insights</span>
           <h2>Readable observations</h2>
           {cautiousInsights.map((insight, index) => (
-            <InsightCard key={insight} title={index === 0 ? 'Data freshness' : `Context note ${index + 1}`}>
+            <InsightCard
+              emphasis={index === 0 ? 'highlight' : 'normal'}
+              key={insight}
+              title={index === 0 ? 'Data freshness' : `Context note ${index + 1}`}
+            >
               {insight}
             </InsightCard>
           ))}
@@ -143,8 +154,8 @@ export function OverviewPage() {
             {conceptualModules.map((module) => (
               <article key={module.title}>
                 <strong>{module.title}</strong>
-                <span>{module.status}</span>
-                <p>{module.description}</p>
+                <ClassificationBadge kind="conceptual" label="Conceptual" />
+                <p>{module.status}</p>
               </article>
             ))}
           </div>
@@ -152,8 +163,8 @@ export function OverviewPage() {
         <article className="panel transparency-panel">
           <span className="eyebrow">Data Transparency</span>
           <h2>Sources and classifications</h2>
-          <TransparencyRow kind="public-utility" title="Public Data" source="Nuuka Open API" status="Per-utility timestamps" />
-          <TransparencyRow kind="current-weather" title="Current Weather" source="Open-Meteo" status="Provider timestamp" />
+          <TransparencyRow kind="public-utility" title="Public Utility Data" source="Nuuka Open API" status="Per-utility timestamps" />
+          <TransparencyRow kind="current-weather" title="Current Public Weather" source="Open-Meteo" status="Provider timestamp" />
           <TransparencyRow kind="conceptual" title="Conceptual Data" source="Local prototype content" status="Illustrative" />
           <a className="text-link" href="#/data-transparency">Explore methodology</a>
         </article>
@@ -162,13 +173,13 @@ export function OverviewPage() {
   )
 }
 
-function MiniChart({ path }: { path: string }) {
+function MiniChart({ path, utility }: { path: string; utility: UtilityId }) {
   return (
-    <figure className="chart-shell" aria-label="Structural utility chart summary">
+    <figure className="chart-shell" data-utility={utility} aria-label="Structural utility chart summary">
       <svg viewBox="0 0 100 48" role="img" aria-label="Selected utility trend line">
         <path d={path} />
       </svg>
-      <figcaption>Chart placeholder shows the selected period structure.</figcaption>
+      <figcaption>Selected-period structure · Stage 6 calculations not introduced.</figcaption>
     </figure>
   )
 }

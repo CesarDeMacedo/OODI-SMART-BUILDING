@@ -17,6 +17,14 @@ export const classificationLabels: Record<DataClassificationKind, { label: strin
     label: 'Cached Public Data Snapshot',
     description: 'Previously retrieved authentic Nuuka data used only as labelled fallback.',
   },
+  'partial-data': {
+    label: 'Partial Data',
+    description: 'A module has usable data with reduced coverage or source limitations.',
+  },
+  unavailable: {
+    label: 'Unavailable / Error',
+    description: 'A local module cannot currently display usable source data.',
+  },
 }
 
 export const prototypeDisclaimer =

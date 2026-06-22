@@ -16,6 +16,7 @@ export interface MediaAsset {
   caption?: string
   aspectRatio: string
   objectFit: 'cover' | 'contain'
+  objectPosition?: string
 }
 
 export type MediaRegistry = Record<MediaSlotId, MediaAsset | null>
@@ -23,27 +24,30 @@ export type MediaRegistry = Record<MediaSlotId, MediaAsset | null>
 export const mediaAssets: MediaRegistry = {
   openingHeroMedia: {
     type: 'image',
-    src: '/media/stage-04/introduction.png',
-    alt: 'Stage 4 reference media showing Helsinki Central Library Oodi as the landing hero visual.',
-    caption: 'Temporary Stage 4 reference media. Interface text and controls remain rendered in HTML.',
+    src: '/media/oodi/opening-hero.png',
+    alt: 'Helsinki Central Library Oodi exterior at dusk.',
+    caption: 'Oodi architectural hero image.',
     aspectRatio: '16 / 9',
     objectFit: 'cover',
+    objectPosition: 'center center',
   },
   overviewHeroMedia: {
     type: 'image',
-    src: '/media/stage-04/overview.png',
-    alt: 'Stage 4 reference media showing the Oodi overview page visual direction.',
-    caption: 'Temporary Stage 4 overview reference media used inside a semantic media slot.',
-    aspectRatio: '16 / 9',
+    src: '/media/oodi/opening-hero.png',
+    alt: 'Helsinki Central Library Oodi exterior at dusk.',
+    caption: 'Oodi architectural context image.',
+    aspectRatio: '21 / 9',
     objectFit: 'cover',
+    objectPosition: 'center center',
   },
   resourcePerformanceHeroMedia: {
     type: 'image',
-    src: '/media/stage-04/resource-performance-energy.png',
-    alt: 'Stage 4 reference media showing Oodi with an analytical resource performance visualization.',
-    caption: 'Temporary Stage 4 resource performance reference media; analytical overlays remain architecturally separable.',
+    src: '/media/oodi/opening-hero.png',
+    alt: 'Helsinki Central Library Oodi exterior at dusk.',
+    caption: 'Oodi architectural resource-performance image.',
     aspectRatio: '21 / 9',
     objectFit: 'cover',
+    objectPosition: 'center center',
   },
   resourcePerformanceOverlayMedia: null,
   buildingIntelligenceIllustration: null,

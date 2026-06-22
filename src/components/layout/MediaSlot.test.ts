@@ -13,6 +13,7 @@ describe('MediaSlot', () => {
           alt: 'Oodi exterior at dusk',
           aspectRatio: '16 / 9',
           objectFit: 'cover',
+          objectPosition: 'center top',
         },
         slotName: 'overviewHeroMedia',
       }),
@@ -21,6 +22,7 @@ describe('MediaSlot', () => {
     expect(markup).toContain('img')
     expect(markup).toContain('alt="Oodi exterior at dusk"')
     expect(markup).toContain('/media/oodi.jpg')
+    expect(markup).toContain('object-position:center top')
   })
 
   it('renders video assets with poster support', () => {
@@ -45,13 +47,15 @@ describe('MediaSlot', () => {
     expect(markup).toContain('playsInline=""')
   })
 
-  it('renders a stable fallback for missing media', () => {
+  it('renders a stable unavailable fallback for missing media', () => {
     const markup = renderToStaticMarkup(
       createElement(MediaSlot, { asset: null, slotName: 'openingHeroMedia' }),
     )
 
-    expect(markup).toContain('Media placeholder')
+    expect(markup).toContain('Media unavailable')
     expect(markup).not.toContain('<img')
+    expect(markup).toContain('media-slot__fallback')
+    expect(markup).toContain('data-media-state="fallback"')
   })
 
   it('renders an optional overlay layer independently from base media', () => {
@@ -78,5 +82,6 @@ describe('MediaSlot', () => {
     expect(markup).toContain('/media/base.png')
     expect(markup).toContain('/media/overlay.png')
     expect(markup).toContain('media-slot__overlay')
+    expect(markup).toContain('data-media-overlay="true"')
   })
 })

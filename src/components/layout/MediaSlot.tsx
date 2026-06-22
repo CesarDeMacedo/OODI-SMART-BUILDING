@@ -16,10 +16,15 @@ export function MediaSlot({
   }
 
   return (
-    <figure className={`media-slot ${className}`} data-media-slot={slotName} style={style}>
+    <figure
+      className={`media-slot ${className}`}
+      data-media-slot={slotName}
+      data-media-state={asset ? 'loaded' : 'fallback'}
+      style={style}
+    >
       {asset ? <MediaElement asset={asset} /> : <MediaFallback slotName={slotName} />}
       {overlay ? (
-        <div className="media-slot__overlay" aria-hidden="true">
+        <div className="media-slot__overlay" data-media-overlay="true" aria-hidden="true">
           <MediaElement asset={overlay} decorative />
         </div>
       ) : null}
@@ -46,7 +51,10 @@ function MediaElement({
         poster={asset.poster}
         preload="metadata"
         src={asset.src}
-        style={{ objectFit: asset.objectFit }}
+        style={{
+          objectFit: asset.objectFit,
+          objectPosition: asset.objectPosition ?? 'center center',
+        }}
       />
     )
   }
@@ -56,15 +64,18 @@ function MediaElement({
       alt={decorative ? '' : asset.alt}
       className="media-slot__asset"
       src={asset.src}
-      style={{ objectFit: asset.objectFit }}
+      style={{
+        objectFit: asset.objectFit,
+        objectPosition: asset.objectPosition ?? 'center center',
+      }}
     />
   )
 }
 
 function MediaFallback({ slotName }: { slotName: MediaSlotId }) {
   return (
-    <div className="media-slot__fallback" role="img" aria-label={`${slotName} media placeholder`}>
-      <span>Media placeholder</span>
+    <div className="media-slot__fallback" role="img" aria-label={`${slotName} media unavailable`}>
+      <span>Media unavailable</span>
       <strong>{slotName}</strong>
     </div>
   )

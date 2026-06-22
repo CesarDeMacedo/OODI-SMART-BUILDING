@@ -1,0 +1,84 @@
+:root {
+  --color-bg-app: #06101d;
+  --color-bg-app-soft: #0a1828;
+  --color-bg-band: rgba(7, 19, 33, 0.78);
+  --color-surface-primary: rgba(10, 28, 47, 0.78);
+  --color-surface-elevated: rgba(14, 37, 61, 0.88);
+  --color-surface-selected: rgba(18, 45, 73, 0.94);
+  --color-text-primary: #f6f8fb;
+  --color-text-secondary: #c8d2df;
+  --color-text-muted: #92a2b6;
+  --color-text-inverse: #07111e;
+  --color-border-subtle: rgba(210, 225, 244, 0.16);
+  --color-border-strong: rgba(221, 235, 250, 0.32);
+  --color-border-selected: rgba(245, 183, 76, 0.7);
+  --color-accent-active: #e24c41;
+  --color-accent-primary: #7aa5c7;
+  --color-utility-electricity: #e8b63f;
+  --color-utility-heat: #d86e45;
+  --color-utility-water: #39a7e8;
+  --color-utility-cooling: #5bd5e5;
+  --color-data-public: #5bd2aa;
+  --color-data-weather: #74b8f2;
+  --color-data-cached: #d7ad4c;
+  --color-data-conceptual: #a58bdc;
+  --color-data-partial: #d9b45a;
+  --color-data-unavailable: #df7774;
+  --color-status-success: #5bd2aa;
+  --color-status-warning: #d9b45a;
+  --color-status-error: #df7774;
+  --color-status-neutral: #9badc1;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 48px;
+  --space-9: 64px;
+  --space-10: 96px;
+
+  --font-sans: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  --font-size-caption: 0.78rem;
+  --font-size-label: 0.84rem;
+  --font-size-body: 1rem;
+  --font-size-card-title: 1.06rem;
+  --font-size-section-title: 1.45rem;
+  --font-size-page-title: clamp(2.4rem, 4vw, 4.9rem);
+  --font-size-display: clamp(3.2rem, 6vw, 6.8rem);
+  --font-weight-regular: 400;
+  --font-weight-medium: 550;
+  --font-weight-semibold: 650;
+  --line-height-tight: 1.03;
+  --line-height-body: 1.52;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  --shadow-panel: 0 22px 70px rgba(0, 0, 0, 0.25);
+  --shadow-elevated: 0 28px 90px rgba(0, 0, 0, 0.32);
+  --backlight-neutral: 0 0 54px rgba(93, 132, 165, 0.18);
+  --backlight-electricity: 0 0 42px rgba(232, 182, 63, 0.2);
+  --backlight-weather: 0 0 42px rgba(116, 184, 242, 0.18);
+  --backlight-conceptual: 0 0 42px rgba(165, 139, 220, 0.18);
+
+  --transition-fast: 140ms ease;
+  --transition-medium: 220ms ease;
+  --z-nav: 20;
+  --z-overlay: 3;
+
+  --bg: var(--color-bg-app);
+  --surface: var(--color-surface-primary);
+  --text: var(--color-text-primary);
+  --muted: var(--color-text-muted);
+  --border: var(--color-border-subtle);
+  --accent: var(--color-utility-electricity);
+  --code-bg: rgba(255, 255, 255, 0.08);
+  --sans: var(--font-sans);
+  --mono: var(--font-mono);
+}

@@ -14,7 +14,11 @@ export function InsightsPage() {
       </section>
       <section className="insight-list">
         {cautiousInsights.map((insight, index) => (
-          <InsightCard key={insight} title={`Observation ${index + 1}`}>
+          <InsightCard
+            emphasis={index === 0 ? 'highlight' : 'normal'}
+            key={insight}
+            title={`Observation ${index + 1}`}
+          >
             {insight}
           </InsightCard>
         ))}

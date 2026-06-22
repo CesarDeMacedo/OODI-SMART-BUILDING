@@ -29,6 +29,8 @@ export function DataTransparencyPage() {
         <TransparencyRow kind="current-weather" title="Open-Meteo weather" source="Open-Meteo forecast API" status="Current public weather data" />
         <TransparencyRow kind="cached-public-snapshot" title="Nuuka snapshots" source="Versioned public-data snapshot files" status="Labelled fallback only" />
         <TransparencyRow kind="conceptual" title="Building Intelligence" source="Local prototype content" status="Illustrative only" />
+        <TransparencyRow kind="partial-data" title="Partial module data" source="Local module state" status="Reduced coverage is labelled in place" />
+        <TransparencyRow kind="unavailable" title="Unavailable module data" source="Local module state" status="Errors stay inside the affected module" />
       </section>
       <DisclosureBar>
         Public utility values, current weather context, and conceptual indicators must remain visually and textually distinct.

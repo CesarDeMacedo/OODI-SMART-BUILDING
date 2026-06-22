@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: var(--color-text-primary);
+  background: var(--color-bg-app);
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  font: var(--font-size-body) / var(--line-height-body) var(--font-sans);
+  color: var(--color-text-primary);
+  background: var(--color-bg-app);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-page-title);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+  letter-spacing: 0;
+}
+
+.page--opening h1 {
+  font-size: var(--font-size-display);
+}
+
+h2 {
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-section-title);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.16;
+}
+
+h3 {
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-card-title);
+  font-weight: var(--font-weight-semibold);
+}
+
+p {
+  margin-bottom: 0;
+}
+
+button,
+select,
+a {
+  font: inherit;
+}
+
+button:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-accent-active);
+  outline-offset: 3px;
+}
+
+code {
+  padding: 2px 5px;
+  border-radius: var(--radius-sm);
+  background: var(--code-bg);
+  font-family: var(--font-mono);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
