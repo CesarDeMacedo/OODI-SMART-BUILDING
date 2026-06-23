@@ -21,10 +21,12 @@ export interface MediaAsset {
 
 export type MediaRegistry = Record<MediaSlotId, MediaAsset | null>
 
+const base = import.meta.env.BASE_URL
+
 export const mediaAssets: MediaRegistry = {
   openingHeroMedia: {
     type: 'image',
-    src: '/media/oodi/opening-hero.png',
+    src: `${base}media/oodi/opening-hero.png`,
     alt: 'Helsinki Central Library Oodi exterior at dusk.',
     caption: 'Oodi architectural hero image.',
     aspectRatio: '16 / 9',
@@ -33,7 +35,7 @@ export const mediaAssets: MediaRegistry = {
   },
   overviewHeroMedia: {
     type: 'image',
-    src: '/media/oodi/opening-hero.png',
+    src: `${base}media/oodi/opening-hero.png`,
     alt: 'Helsinki Central Library Oodi exterior at dusk.',
     caption: 'Oodi architectural context image.',
     aspectRatio: '21 / 9',
@@ -42,7 +44,7 @@ export const mediaAssets: MediaRegistry = {
   },
   resourcePerformanceHeroMedia: {
     type: 'image',
-    src: '/media/oodi/opening-hero.png',
+    src: `${base}media/oodi/opening-hero.png`,
     alt: 'Helsinki Central Library Oodi exterior at dusk.',
     caption: 'Oodi architectural resource-performance image.',
     aspectRatio: '21 / 9',

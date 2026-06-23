@@ -177,7 +177,7 @@ export async function loadNuukaSnapshotSeries({
   fallbackReason,
   fetcher = fetch,
 }: LoadNuukaSnapshotSeriesRequest): Promise<UtilitySeriesResult | null> {
-  const manifestResponse = await fetcher('/data/nuuka/snapshots/manifest.json')
+  const manifestResponse = await fetcher(`${import.meta.env.BASE_URL}data/nuuka/snapshots/manifest.json`)
   if (!manifestResponse.ok) {
     return null
   }
@@ -197,7 +197,7 @@ export async function loadNuukaSnapshotSeries({
     return null
   }
 
-  const snapshotResponse = await fetcher(`/data/nuuka/snapshots/${entry.file}`)
+  const snapshotResponse = await fetcher(`${import.meta.env.BASE_URL}data/nuuka/snapshots/${entry.file}`)
   if (!snapshotResponse.ok) {
     return null
   }
