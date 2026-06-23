@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import type { ReactNode } from 'react'
 import { utilityDefinitions } from '../../data/utilities/utilityDefinitions'
 import type { ProductPeriod, UtilityId, UtilitySeries } from '../../data/utilities/utilitySeries'
@@ -93,6 +93,26 @@ function formatCompact(value: number): string {
 
 export function OverviewPage() {
   const [selectedUtility, setSelectedUtility] = useState<UtilityId>('electricity')
+  const pageRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const el = pageRef.current
+    if (!el) return
+    const fit = () => {
+      el.style.zoom = ''
+      const shell = el.closest('.app-shell')
+      const navH = (shell?.querySelector('.top-nav') as HTMLElement | null)?.offsetHeight ?? 50
+      const footH = (shell?.querySelector('.app-footer') as HTMLElement | null)?.offsetHeight ?? 28
+      const available = window.innerHeight - navH - footH
+      const naturalH = el.scrollHeight
+      if (naturalH > available && available > 200) {
+        el.style.zoom = Math.max(0.55, available / naturalH).toFixed(3)
+      }
+    }
+    const t = setTimeout(fit, 150)
+    window.addEventListener('resize', fit)
+    return () => { clearTimeout(t); window.removeEventListener('resize', fit) }
+  }, [])
   const [selectedPeriod, setSelectedPeriod] = useState<ProductPeriod>('24h')
 
   const summaries = useUtilitySummaries('24h')
@@ -142,7 +162,7 @@ export function OverviewPage() {
   const insightUtilities = utilityDefinitions
 
   return (
-    <main className="page page--overview" data-layout="overview">
+    <main className="page page--overview" data-layout="overview" ref={pageRef}>
 
       {/* ── Row 1: Hero + Building Context ── */}
       <section className="ovw-hero" aria-label="Building overview">
