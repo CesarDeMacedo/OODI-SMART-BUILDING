@@ -1,5 +1,13 @@
 import type { UtilitySeries } from '../../data/utilities/utilitySeries'
 
+export interface OverviewChartPaths {
+  linePath: string
+  areaPath: string
+  yMax: number
+  peakX: number
+  peakY: number
+}
+
 export interface UtilityMetrics {
   average: number | null
   peak: { value: number; timestamp: string } | null
@@ -46,6 +54,37 @@ export function formatMetricValue(value: number | null | undefined, unit: string
   }
 
   return `${value.toLocaleString(undefined, { maximumFractionDigits: 1 })} ${unit}`
+}
+
+export function getOverviewChartPaths(series: UtilitySeries | undefined): OverviewChartPaths {
+  const W = 600
+  const H = 180
+  const TOP = 12
+
+  if (!series || series.points.length < 2) {
+    return { linePath: '', areaPath: '', yMax: 0, peakX: -1, peakY: H }
+  }
+
+  const values = series.points.map((p) => p.value)
+  const max = Math.max(...values)
+  const range = max || 1
+
+  const pts = values.map((v, i) => ({
+    x: (i / (values.length - 1)) * W,
+    y: H - ((v / range) * (H - TOP)),
+  }))
+
+  const linePath = pts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ')
+  const areaPath = `${linePath} L ${W} ${H} L 0 ${H} Z`
+  const peakIdx = values.reduce((mi, v, i) => (v > values[mi] ? i : mi), 0)
+
+  return {
+    linePath,
+    areaPath,
+    yMax: max,
+    peakX: pts[peakIdx].x,
+    peakY: pts[peakIdx].y,
+  }
 }
 
 export function getChartPath(series: UtilitySeries | undefined) {

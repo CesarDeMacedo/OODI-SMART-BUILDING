@@ -4,7 +4,6 @@ import type { ProductPeriod, UtilityDefinition, UtilityId, UtilitySeriesResult }
 import { useUtilitySeries, useUtilitySummaries } from '../useAppData'
 import { MetricCard } from '../../components/cards/MetricCard'
 import { DataStatus } from '../../components/layout/DataStatus'
-import { DisclosureBar } from '../../components/layout/DisclosureBar'
 import { MediaSlot } from '../../components/layout/MediaSlot'
 import { mediaAssets } from '../../content/mediaAssets'
 import { formatMetricValue, getChartPath, getSeriesMetrics } from '../../features/resourcePerformance/metrics'
@@ -98,22 +97,7 @@ export function ResourcePerformancePage() {
               {selectedDefinition?.displayName ?? 'Utility'} · {getPeriodLabel(period)} · {metrics.pointCount} records
             </figcaption>
           </figure>
-        </article>
-
-        <aside className="resource-side">
-          <div className="metric-grid metric-grid--stacked">
-            <MetricCard utility={utility} label="Average" value={formatMetricValue(metrics.average, series?.unit ?? '')} detail={getPeriodLabel(period)} />
-            <MetricCard utility={utility} label="Peak" value={formatMetricValue(metrics.peak?.value, series?.unit ?? '')} detail={metrics.peak?.timestamp ?? 'n/a'} />
-            <MetricCard utility={utility} label="Latest" value={formatMetricValue(metrics.latest?.value, series?.unit ?? '')} detail={metrics.latest?.timestamp ?? 'n/a'} />
-            <MetricCard utility={utility} label="Source Timestamp" value={sourceTimestamp} detail={`${metrics.pointCount} normalized records`} />
-          </div>
-        </aside>
-      </section>
-
-      <section className="resource-detail-row" aria-label="Resource performance metadata and related utilities">
-        <article className="panel resource-metadata-panel">
-          <span className="eyebrow">Period and Source</span>
-          <dl className="metadata-grid metadata-grid--compact">
+          <dl className="metadata-grid metadata-grid--compact metadata-grid--chart-footer">
             <div><dt>Requested period</dt><dd>{series ? `${series.period.requestedWindow.start} to ${series.period.requestedWindow.end}` : 'n/a'}</dd></div>
             <div><dt>Effective period</dt><dd>{series?.period.effectiveWindow ? `${series.period.effectiveWindow.start} to ${series.period.effectiveWindow.end}` : 'n/a'}</dd></div>
             <div><dt>Source timestamp</dt><dd>{sourceTimestamp}</dd></div>
@@ -126,6 +110,17 @@ export function ResourcePerformancePage() {
           </div>
         </article>
 
+        <aside className="resource-side">
+          <div className="metric-grid metric-grid--stacked">
+            <MetricCard utility={utility} label="Average" value={formatMetricValue(metrics.average, series?.unit ?? '')} detail={getPeriodLabel(period)} />
+            <MetricCard utility={utility} label="Peak" value={formatMetricValue(metrics.peak?.value, series?.unit ?? '')} detail={metrics.peak?.timestamp ?? 'n/a'} />
+            <MetricCard utility={utility} label="Latest" value={formatMetricValue(metrics.latest?.value, series?.unit ?? '')} detail={metrics.latest?.timestamp ?? 'n/a'} />
+            <MetricCard utility={utility} label="Source Timestamp" value={sourceTimestamp} detail={`${metrics.pointCount} normalized records`} />
+          </div>
+        </aside>
+      </section>
+
+      <section className="resource-detail-row" aria-label="Related utility summaries">
         <aside className="resource-compact-utilities" aria-label="Compact related utility summaries">
           {utilityDefinitions
             .filter((definition) => definition.id !== utility)
@@ -138,12 +133,11 @@ export function ResourcePerformancePage() {
               />
             ))}
         </aside>
+        <p className="resource-disclosure">
+          Utility datasets update independently and may have different timestamps.
+          Building media overlays are analytical visualizations and are not an operational digital twin.
+        </p>
       </section>
-
-      <DisclosureBar>
-        Utility datasets update independently and may have different timestamps.
-        Building media overlays are analytical visualizations and are not an operational digital twin.
-      </DisclosureBar>
     </main>
   )
 }

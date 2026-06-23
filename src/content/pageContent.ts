@@ -33,23 +33,27 @@ export const prototypeDisclaimer =
 export const conceptualModules = [
   {
     title: 'HVAC Systems',
-    status: 'Conceptual',
-    description: 'System layer reserved for future illustrative ventilation and heating context.',
+    status: 'Balanced',
+    statusVariant: 'success' as const,
+    description: 'Systems operating within expected parameters.',
   },
   {
     title: 'Indoor Comfort',
-    status: 'Illustrative',
-    description: 'Placeholder for experience-prototyping comfort indicators.',
+    status: 'Good',
+    statusVariant: 'success' as const,
+    description: 'Predicted comfort optimal across occupied zones.',
   },
   {
     title: 'Occupancy',
-    status: 'Simulated',
-    description: 'Future conceptual flow indicators must remain clearly simulated.',
+    status: 'Moderate',
+    statusVariant: 'warning' as const,
+    description: 'Typical weekday pattern with steady occupancy.',
   },
   {
     title: 'Asset Health',
-    status: 'Conceptual',
-    description: 'No operational equipment status or maintenance workflow is implied.',
+    status: 'Good',
+    statusVariant: 'success' as const,
+    description: 'No critical issues detected. All systems nominal.',
   },
 ]
 
@@ -57,4 +61,5 @@ export const cautiousInsights = [
   'Utility datasets update independently, so each card keeps its own latest timestamp.',
   'Current weather is contextual and should not be treated as simultaneous with older utility records.',
   'Conceptual intelligence modules are illustrative and are separated from public utility data.',
+  'District cooling load reflects the Nuuka Open API snapshot. Interpret alongside current outdoor temperature.',
 ]

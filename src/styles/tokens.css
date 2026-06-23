@@ -1,8 +1,8 @@
 :root {
-  --color-bg-app: #06101d;
-  --color-bg-app-soft: #0a1828;
+  --color-bg-app: #090f1e;
+  --color-bg-app-soft: #0b1424;
   --color-bg-band: rgba(7, 19, 33, 0.78);
-  --color-surface-primary: rgba(10, 28, 47, 0.78);
+  --color-surface-primary: rgba(15, 26, 46, 0.92);
   --color-surface-elevated: rgba(14, 37, 61, 0.88);
   --color-surface-selected: rgba(18, 45, 73, 0.94);
   --color-text-primary: #f6f8fb;
@@ -14,14 +14,14 @@
   --color-border-selected: rgba(245, 183, 76, 0.7);
   --color-accent-active: #e24c41;
   --color-accent-primary: #7aa5c7;
-  --color-utility-electricity: #e8b63f;
-  --color-utility-heat: #d86e45;
-  --color-utility-water: #39a7e8;
-  --color-utility-cooling: #5bd5e5;
-  --color-data-public: #5bd2aa;
-  --color-data-weather: #74b8f2;
+  --color-utility-electricity: #f3b03c;
+  --color-utility-heat: #ff7a45;
+  --color-utility-water: #4f9bff;
+  --color-utility-cooling: #34c5e0;
+  --color-data-public: #46c98b;
+  --color-data-weather: #4f9bff;
   --color-data-cached: #d7ad4c;
-  --color-data-conceptual: #a58bdc;
+  --color-data-conceptual: #9d80f2;
   --color-data-partial: #d9b45a;
   --color-data-unavailable: #df7774;
   --color-status-success: #5bd2aa;
@@ -40,8 +40,8 @@
   --space-9: 64px;
   --space-10: 96px;
 
-  --font-sans: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-mono: ui-monospace, "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  --font-sans: 'Manrope', system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, "Cascadia Mono", Consolas, monospace;
   --font-size-caption: 0.78rem;
   --font-size-label: 0.84rem;
   --font-size-body: 1rem;
