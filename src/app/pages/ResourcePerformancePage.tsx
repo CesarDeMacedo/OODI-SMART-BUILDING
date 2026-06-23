@@ -118,7 +118,7 @@ export function ResourcePerformancePage() {
   }, [])
 
   const selected = useUtilitySeries(utility, period)
-  const summaries = useUtilitySummaries('24h')
+  const summaries = useUtilitySummaries(period)
 
   const series = getSeries(selected.result)
   const metrics = getSeriesMetrics(series)
@@ -451,6 +451,7 @@ export function ResourcePerformancePage() {
             utilityId={def.id}
             displayName={def.displayName}
             loadState={summaries[def.id]}
+            period={period}
           />
         ))}
         <article className="rp-data-notice" aria-label="Data Notice">
@@ -523,10 +524,12 @@ function RelatedUtilitySummary({
   utilityId,
   displayName,
   loadState,
+  period,
 }: {
   utilityId: UtilityId
   displayName: string
   loadState: UtilityLoadState
+  period: ProductPeriod
 }) {
   const series = getSeries(loadState.result)
   const latest = series?.latestReading
@@ -558,7 +561,7 @@ function RelatedUtilitySummary({
             </span>
             <span className="rp-summary-card__unit">{unit}</span>
           </div>
-          <div className="rp-summary-card__sub">Latest hour</div>
+          <div className="rp-summary-card__sub">{getPeriodLabel(period)}</div>
         </div>
         {chartPath ? (
           <svg

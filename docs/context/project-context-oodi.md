@@ -471,6 +471,39 @@ Focus:
 * digital advisory prototyping;
 * communication of complex building information.
 
+---
+
+## 16. Stage Completion Record
+
+### Stage 5 — Visual Design System
+
+**Status:** Complete  
+**Closed:** 2026-06-23  
+**Validation:** Deployed and verified across multiple monitors and browsers via GitHub Pages.
+
+Delivered: design token architecture, shared component library, chart visual language, all DataStatus states, data-classification visual distinctions, responsive behavior, and auto-zoom for Overview and Resource Performance. Opening, Overview and Resource Performance pages visually approved.
+
+### Stage 6 — Resource Performance
+
+**Status:** Complete  
+**Closed:** 2026-06-23  
+
+Delivered:
+
+* four utility views — Electricity, Heat, Water, District Cooling;
+* 24h, 30d and 12m period switching;
+* runtime SVG charts with area fill, line path and peak marker;
+* KPI metrics — average, peak, latest — per utility per period;
+* period-aligned related utility summary cards (summaries match the active period);
+* requested and effective period display in Period Details panel;
+* per-utility source timestamps;
+* provenance attribution — Helsinki Nuuka Open API;
+* quality and granularity disclosure per utility;
+* loading, partial, empty, error, cached-snapshot and memory-cache states;
+* Data Notice with prototype-scope and non-operational disclosure;
+* no interpolated or fabricated utility values;
+* responsive layout with auto-zoom on laptop viewports.
+
 The final app should generate strong screenshots and a credible demonstration that can be presented to a Digital Advisory Lead.
 
 ---
