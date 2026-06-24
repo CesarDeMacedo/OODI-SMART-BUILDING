@@ -44,4 +44,17 @@ describe('mediaAssets', () => {
     expect(mediaAssets.resourcePerformanceOverlayMedia).toBeNull()
     expect(mediaAssets.resourcePerformanceHeroMedia).not.toBeNull()
   })
+
+  it('maps the approved Building Intelligence cutaway image through the semantic slot', () => {
+    expect(mediaAssets.buildingIntelligenceIllustration).toMatchObject({
+      type: 'image',
+      src: '/media/oodi/building-intelligence-cutaway.webp',
+      aspectRatio: '16 / 9',
+      objectFit: 'cover',
+    })
+  })
+
+  it('keeps the Data Transparency support media slot separate', () => {
+    expect(mediaAssets.dataTransparencySupportMedia).toBeNull()
+  })
 })

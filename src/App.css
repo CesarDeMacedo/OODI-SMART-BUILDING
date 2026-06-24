@@ -602,20 +602,23 @@
 
 .app-shell:has(.page--overview),
 .app-shell:has(.page--resource),
-.app-shell:has(.page--opening) {
+.app-shell:has(.page--opening),
+.app-shell:has(.page--intelligence) {
   background: linear-gradient(168deg, #0a1120 0%, #0b1424 55%, #091020 100%);
 }
 
 .app-shell:has(.page--overview) .app-footer,
 .app-shell:has(.page--resource) .app-footer,
-.app-shell:has(.page--opening) .app-footer {
+.app-shell:has(.page--opening) .app-footer,
+.app-shell:has(.page--intelligence) .app-footer {
   padding: 5px 0 6px;
   font-size: 11.5px;
 }
 
 .app-shell:has(.page--overview) .top-nav,
 .app-shell:has(.page--resource) .top-nav,
-.app-shell:has(.page--opening) .top-nav {
+.app-shell:has(.page--opening) .top-nav,
+.app-shell:has(.page--intelligence) .top-nav {
   padding-top: 8px;
   padding-bottom: 8px;
 }

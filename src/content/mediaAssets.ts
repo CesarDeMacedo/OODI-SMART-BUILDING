@@ -52,6 +52,13 @@ export const mediaAssets: MediaRegistry = {
     objectPosition: 'center center',
   },
   resourcePerformanceOverlayMedia: null,
-  buildingIntelligenceIllustration: null,
+  buildingIntelligenceIllustration: {
+    type: 'image',
+    src: `${base}media/oodi/building-intelligence-cutaway.webp`,
+    alt: 'Oodi Helsinki architectural cross-section showing three building levels.',
+    aspectRatio: '16 / 9',
+    objectFit: 'cover',
+    objectPosition: 'center center',
+  },
   dataTransparencySupportMedia: null,
 }

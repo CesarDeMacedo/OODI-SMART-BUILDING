@@ -2,6 +2,7 @@ import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { describe, expect, it } from 'vitest'
 import App from '../../App'
+import { BuildingIntelligencePage } from './BuildingIntelligencePage'
 import { DataTransparencyPage } from './DataTransparencyPage'
 import { OpeningPage } from './OpeningPage'
 import { ResourcePerformancePage } from './ResourcePerformancePage'
@@ -60,7 +61,7 @@ describe('Stage 4 pages', () => {
     expect(markup).not.toContain('Independent portfolio prototype')
   })
 
-  it('renders one shared disclaimer in the default app shell', () => {
+  it('renders one shared disclaimer in the default app shell (opening route)', () => {
     const markup = renderToStaticMarkup(createElement(App))
 
     expect(markup.match(/Independent portfolio prototype/g)?.length).toBe(1)
@@ -81,5 +82,76 @@ describe('Stage 4 pages', () => {
     expect(markup).not.toContain('Media unavailable')
     expect(markup).not.toContain('openingHeroMedia</strong>')
     expect(markup).not.toContain('/media/stage-04/introduction.png')
+  })
+})
+
+describe('Stage 7 Building Intelligence', () => {
+  it('renders the building intelligence page with layout marker and page class', () => {
+    const markup = renderToStaticMarkup(createElement(BuildingIntelligencePage))
+
+    expect(markup).toContain('data-layout="building-intelligence"')
+    expect(markup).toContain('page--intelligence')
+    expect(markup).toContain('<h1>Building Intelligence</h1>')
+  })
+
+  it('renders all level selector options', () => {
+    const markup = renderToStaticMarkup(createElement(BuildingIntelligencePage))
+
+    expect(markup).toContain('All Levels')
+    expect(markup).toContain('Level 1')
+    expect(markup).toContain('Level 2')
+    expect(markup).toContain('Level 3')
+  })
+
+  it('renders all intelligence layer options', () => {
+    const markup = renderToStaticMarkup(createElement(BuildingIntelligencePage))
+
+    expect(markup).toContain('Occupancy')
+    expect(markup).toContain('Indoor Comfort')
+    expect(markup).toContain('Air Quality')
+    expect(markup).toContain('HVAC')
+    expect(markup).toContain('Asset Health')
+  })
+
+  it('renders the approved clean building intelligence image', () => {
+    const markup = renderToStaticMarkup(createElement(BuildingIntelligencePage))
+
+    expect(markup).toContain('/media/oodi/building-intelligence-cutaway.webp')
+    expect(markup).not.toContain('Building diagram unavailable')
+    expect(markup).not.toContain('buildingIntelligenceIllustration</strong>')
+  })
+
+  it('renders the conceptual classification badge and persistent disclosure', () => {
+    const markup = renderToStaticMarkup(createElement(BuildingIntelligencePage))
+
+    expect(markup).toContain('classification-badge--conceptual')
+    expect(markup).toContain('Conceptual IoT Layer')
+    expect(markup).toContain('illustrative portfolio data')
+    expect(markup).toContain('not an operational Oodi system')
+  })
+
+  it('renders zone hotspots with accessible labels', () => {
+    const markup = renderToStaticMarkup(createElement(BuildingIntelligencePage))
+
+    expect(markup).toContain('bi-hotspot')
+    expect(markup).toContain('aria-label')
+    expect(markup).toContain('aria-pressed')
+  })
+
+  it('renders the contextual panel with metrics and zone status list', () => {
+    const markup = renderToStaticMarkup(createElement(BuildingIntelligencePage))
+
+    expect(markup).toContain('bi-panel')
+    expect(markup).toContain('bi-zone-list')
+    expect(markup).toContain('bi-panel__insight')
+    expect(markup).toContain('Conceptual insight')
+  })
+
+  it('renders level region overlay divs for all three levels', () => {
+    const markup = renderToStaticMarkup(createElement(BuildingIntelligencePage))
+
+    expect(markup).toContain('data-level="level-1"')
+    expect(markup).toContain('data-level="level-2"')
+    expect(markup).toContain('data-level="level-3"')
   })
 })
