@@ -504,7 +504,28 @@ Delivered:
 * no interpolated or fabricated utility values;
 * responsive layout with auto-zoom on laptop viewports.
 
-The final app should generate strong screenshots and a credible demonstration that can be presented to a Digital Advisory Lead.
+### Stage 7 — Building Intelligence
+
+**Status:** Implemented and approved  
+**Closed:** 2026-06-24  
+
+Delivered:
+
+* clean Oodi cutaway illustration integrated (`public/media/oodi/building-intelligence-cutaway.webp`);
+* deterministic conceptual dataset — 45 records, 9 zones × 5 intelligence layers, no random values or live timestamps;
+* four level views — All Levels, Level 1, Level 2, Level 3;
+* five intelligence layers — Occupancy, Indoor Comfort, Air Quality, HVAC, Asset Health;
+* code-based overlays and hotspots positioned on the cutaway image via CSS percentage coordinates;
+* level region bands calibrated to the image geometry, visible as highlight bands;
+* level-specific insights for every level × layer combination (20 unique insight texts);
+* layer-specific status terminology — occupancy uses Low/Moderate/High; HVAC uses Reduced Demand/Balanced/Elevated Demand; others use Good/Moderate/Attention;
+* hotspot and zone-list selection remain synchronized; scrolls zone into view on selection;
+* ClassificationBadge and DisclosureBar display persistent conceptual-IoT disclosures throughout the page;
+* no BMS connection, no real sensor data, no fake live timestamps, no control behavior;
+* responsive layout with auto-zoom behavior on laptop viewports consistent with other pages;
+* keyboard focus and aria-pressed behavior for hotspot and zone buttons; inactive hotspots are aria-hidden and tabIndex -1;
+* reduced-motion prefers-reduced-motion supported via CSS;
+* typecheck, lint, 108/108 tests and production build all pass.
 
 ---
 

@@ -13,6 +13,10 @@ dist-ssr
 *.local
 review-artifacts/
 test-results/
+.playwright-cli/
+
+# Root-level screenshot artifacts
+/*.png
 
 # Environment files
 .env

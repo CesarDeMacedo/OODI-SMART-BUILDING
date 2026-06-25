@@ -225,7 +225,7 @@
     transform: translate(-50%, -50%);
     border-radius: 50%;
     border: 2px solid var(--bi-hotspot-color, rgba(157, 128, 242, 0.7));
-    background: color-mix(in srgb, var(--bi-hotspot-color, rgba(157, 128, 242, 1)) 22%, transparent);
+    background: color-mix(in srgb, var(--bi-hotspot-color, rgba(157, 128, 242, 1)) 38%, transparent);
     cursor: pointer;
     transition:
       opacity 200ms ease,
@@ -238,7 +238,7 @@
     position: absolute;
     inset: -6px;
     border-radius: 50%;
-    border: 1px solid color-mix(in srgb, var(--bi-hotspot-color, rgba(157, 128, 242, 1)) 38%, transparent);
+    border: 1px solid color-mix(in srgb, var(--bi-hotspot-color, rgba(157, 128, 242, 1)) 55%, transparent);
     pointer-events: none;
     animation: bi-pulse 2.8s ease-in-out infinite;
   }

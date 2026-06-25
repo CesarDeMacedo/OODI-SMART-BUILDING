@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { ClassificationBadge } from '../../components/layout/DataStatus'
 import { DisclosureBar } from '../../components/layout/DisclosureBar'
 import { mediaAssets } from '../../content/mediaAssets'
@@ -21,15 +21,23 @@ const LEVEL_KEYS = ['level-1', 'level-2', 'level-3'] as const
 const STATUS_KEYS: ZoneStatus[] = ['good', 'moderate', 'attention']
 
 const STATUS_COLOR: Record<ZoneStatus, string> = {
-  good: 'var(--color-status-success)',
-  moderate: 'var(--color-status-warning)',
-  attention: 'var(--color-status-error)',
+  good: '#3dd9a8',
+  moderate: '#f5b800',
+  attention: '#f03535',
 }
 
 export function BuildingIntelligencePage() {
   const [selectedLevel, setSelectedLevel] = useState<BuildingLevel>('all')
   const [selectedLayer, setSelectedLayer] = useState<IntelligenceLayer>('occupancy')
   const [selectedZone, setSelectedZone] = useState<string | null>(null)
+
+  const zoneRefs = useRef<Map<string, HTMLButtonElement>>(new Map())
+
+  useEffect(() => {
+    if (!selectedZone) return
+    const el = zoneRefs.current.get(selectedZone)
+    el?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+  }, [selectedZone])
 
   const asset = mediaAssets.buildingIntelligenceIllustration
 
@@ -279,6 +287,10 @@ export function BuildingIntelligencePage() {
                   data-selected={selectedZone === record.zoneId ? 'true' : 'false'}
                   aria-pressed={selectedZone === record.zoneId}
                   aria-label={`${record.zoneName}: ${statusLabels[record.status]}. ${record.description}`}
+                  ref={(el) => {
+                    if (el) zoneRefs.current.set(record.zoneId, el)
+                    else zoneRefs.current.delete(record.zoneId)
+                  }}
                   onClick={() => toggleZone(record.zoneId)}
                 >
                   <span
