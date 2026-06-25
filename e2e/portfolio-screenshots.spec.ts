@@ -95,3 +95,19 @@ test.describe('Mobile screenshots — 390×844', () => {
     await shot(page, '10-building-intelligence-mobile.png', { width: 390, height: 844 });
   });
 });
+
+test.describe('Additional desktop screenshots', () => {
+  test('11-authorship-technology-stack-desktop', async ({ page }) => {
+    await page.setViewportSize({ width: 1920, height: 1080 });
+    await page.goto('/#/data-transparency');
+    await page.waitForLoadState('networkidle');
+    // Scroll so the Project authorship heading sits ~80px from the top of the viewport
+    const heading = page.locator('#dt-authorship-heading');
+    await heading.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(300);
+    const headingTop = await heading.evaluate((el) => el.getBoundingClientRect().top);
+    await page.evaluate((offset) => window.scrollBy(0, offset - 80), headingTop);
+    await page.waitForTimeout(200);
+    await page.screenshot({ path: path.join(OUT, '11-authorship-technology-stack-desktop.png'), fullPage: false });
+  });
+});

@@ -127,3 +127,18 @@ Capture script: `e2e/portfolio-screenshots.spec.ts`
 | Viewport | 390×844 |
 | Selected state | Default on load (All Levels, Occupancy layer); scroll to top |
 | Expected content | Mobile layout of the Building Intelligence page; cutaway image scaled to mobile width; level and layer selectors visible; conceptual IoT disclosure present; no horizontal overflow |
+
+---
+
+## Additional Desktop Screenshots
+
+### 11 — Project Authorship and Technology Stack
+
+| Field | Value |
+|---|---|
+| Filename | `11-authorship-technology-stack-desktop.png` |
+| Route | `/data-transparency` (hash: `/#/data-transparency`) |
+| Viewport | 1920×1080 |
+| Selected state | Default on load; scrolled so `#dt-authorship-heading` is ~80 px from top of viewport |
+| Expected content | "Project authorship" section heading; authorship description (Cesar De Macedo, self-initiated prototype); role and contribution summary; independent-study disclaimer; "View Portfolio" and "Connect on LinkedIn" CTAs; "Technology stack" column with FRONTEND, RUNTIME DATA, PUBLIC DATA, TESTING & QA, DEPLOYMENT and AI TOOLS rows; AI-development-only disclosure note; global footer attribution |
+| Framing | `#dt-authorship-heading` scrolled into view via `scrollIntoViewIfNeeded`, then nudged so the heading sits 80 px from top; excludes bulk of upper methodology content |
