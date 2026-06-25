@@ -640,3 +640,21 @@ Completed stages:
 * Stage 9 — Final Quality Assurance: 124/124 tests pass; typecheck, lint and build pass; all six routes verified; responsive layouts confirmed at four viewports; keyboard focus and reduced-motion confirmed; no High or Medium defects; Nuuka 404 fallback behaviour documented as known limitation.
 
 **MVP complete.**
+
+### Portfolio Authorship Refinement (pre-Stage 10)
+
+**Status:** Complete  
+**Closed:** 2026-06-25  
+**Commit:** `4636a0a`
+
+Added:
+
+* global footer attribution — "Independent portfolio prototype by Cesar De Macedo · Portfolio · LinkedIn" on every application page;
+* external links to portfolio (`https://blacklabvisuals.com/`) and LinkedIn (`https://www.linkedin.com/in/cesar-de-macedo-3b4a5a51/`), both opening in a new tab with `rel="noopener noreferrer"`;
+* "Project authorship" section on the Data Transparency page — description, role summary, independence statement and two CTA links;
+* `PORTFOLIO_URL` and `LINKEDIN_URL` centralised in `src/content/pageContent.ts`;
+* keyboard focus and accessible link text on all added links;
+* independence statement preserved — not an official product of Oodi, the City of Helsinki, Nuuka or WSP;
+* no official affiliation implied.
+
+Typecheck, lint, 124/124 tests and production build all pass.
