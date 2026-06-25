@@ -334,41 +334,92 @@ export function DataTransparencyPage() {
           <h2 id="dt-authorship-heading">Project authorship</h2>
         </div>
         <div className="panel dt-authorship" style={{ padding: 'var(--space-5)' }}>
-          <p>
-            Oodi Smart Building Intelligence is a self-initiated portfolio prototype designed
-            and developed by Cesar De Macedo.
-          </p>
-          <p>
-            The project explores how public building utility data, current public weather context
-            and clearly labelled conceptual IoT information can be transformed into a more
-            understandable digital advisory experience.
-          </p>
-          <p className="dt-authorship__roles">
-            Product strategy, information architecture, UX/UI direction, data-source evaluation,
-            technical visualization and AI-assisted application development.
-          </p>
-          <p className="dt-authorship__disclaimer">
-            This is an independent conceptual study. It is not an official product of Helsinki
-            Central Library Oodi, the City of Helsinki, Nuuka or WSP, and it is not connected
-            to an operational building-management system.
-          </p>
-          <div className="dt-authorship__ctas">
-            <a
-              href={PORTFOLIO_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="dt-authorship__cta"
-            >
-              View Portfolio
-            </a>
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="dt-authorship__cta"
-            >
-              Connect on LinkedIn
-            </a>
+          <div className="dt-authorship__cols">
+
+            {/* Left: authorship */}
+            <div className="dt-authorship__left">
+              <p>
+                Oodi Smart Building Intelligence is a self-initiated portfolio prototype designed
+                and developed by Cesar De Macedo.
+              </p>
+              <p>
+                The project explores how public building utility data, current public weather context
+                and clearly labelled conceptual IoT information can be transformed into a more
+                understandable digital advisory experience.
+              </p>
+              <p className="dt-authorship__roles">
+                Product strategy, information architecture, UX/UI direction, data-source evaluation,
+                technical visualization and AI-assisted application development.
+              </p>
+              <p className="dt-authorship__disclaimer">
+                This is an independent conceptual study. It is not an official product of Helsinki
+                Central Library Oodi, the City of Helsinki, Nuuka or WSP, and it is not connected
+                to an operational building-management system.
+              </p>
+              <div className="dt-authorship__ctas">
+                <a
+                  href={PORTFOLIO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="dt-authorship__cta"
+                >
+                  View Portfolio
+                </a>
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="dt-authorship__cta"
+                >
+                  Connect on LinkedIn
+                </a>
+              </div>
+            </div>
+
+            {/* Right: technology stack */}
+            <div className="dt-authorship__right">
+              <h3 className="dt-authorship__stack-heading">Technology stack</h3>
+              <p className="dt-authorship__stack-intro">
+                Built as a data-driven portfolio prototype using public APIs, deterministic
+                logic and AI-assisted development.
+              </p>
+              <dl className="dt-authorship__stack">
+                <div>
+                  <dt>Frontend</dt>
+                  <dd>React · TypeScript · Vite</dd>
+                </div>
+                <div>
+                  <dt>Styling &amp; UI</dt>
+                  <dd>CSS · responsive design · accessible interaction states</dd>
+                </div>
+                <div>
+                  <dt>Public data</dt>
+                  <dd>Helsinki Nuuka Open API · Open-Meteo</dd>
+                </div>
+                <div>
+                  <dt>Visualization</dt>
+                  <dd>SVG overlays · custom charts · deterministic insight rules</dd>
+                </div>
+                <div>
+                  <dt>Testing &amp; QA</dt>
+                  <dd>Vitest · Playwright · ESLint · TypeScript</dd>
+                </div>
+                <div>
+                  <dt>Deployment</dt>
+                  <dd>GitHub Pages · GitHub Actions</dd>
+                </div>
+                <div>
+                  <dt>AI workflow</dt>
+                  <dd>ChatGPT · Claude Code · Codex</dd>
+                </div>
+              </dl>
+              <p className="dt-authorship__stack-note">
+                AI tools were used during development only. No generative AI runs inside
+                the deployed application. Insights are generated by deterministic rules,
+                not by a language model.
+              </p>
+            </div>
+
           </div>
         </div>
       </section>

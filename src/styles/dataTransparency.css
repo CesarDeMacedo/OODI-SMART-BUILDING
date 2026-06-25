@@ -264,17 +264,37 @@
 /* ── Project Authorship ──────────────────────────────────────────────────────── */
 
 .dt-authorship {
+  container-type: inline-size;
+}
+
+.dt-authorship__cols {
+  display: grid;
+  gap: var(--space-7);
+}
+
+@container (min-width: 680px) {
+  .dt-authorship__cols {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .dt-authorship__right {
+    padding-left: var(--space-7);
+    border-left: 1px solid var(--color-border-subtle);
+  }
+}
+
+.dt-authorship__left {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 }
 
-.dt-authorship p {
+.dt-authorship__left p {
   margin: 0;
   color: var(--color-text-secondary);
   font-size: var(--font-size-label);
   line-height: 1.6;
-  max-width: 74ch;
 }
 
 .dt-authorship__roles {
@@ -287,6 +307,7 @@
   border-top: 1px solid var(--color-border-subtle);
   color: var(--color-text-muted) !important;
   font-size: var(--font-size-caption) !important;
+  line-height: 1.55;
 }
 
 .dt-authorship__ctas {
@@ -311,4 +332,68 @@
 .dt-authorship__cta:hover {
   border-color: var(--color-accent-primary);
   color: var(--color-text-primary);
+}
+
+/* ── Technology stack column ─────────────────────────────────────────────────── */
+
+.dt-authorship__right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.dt-authorship__stack-heading {
+  margin: 0;
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.dt-authorship__stack-intro {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+  line-height: 1.55;
+}
+
+.dt-authorship__stack {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.dt-authorship__stack > div {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: var(--space-2);
+  align-items: baseline;
+}
+
+.dt-authorship__stack dt {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.45;
+}
+
+.dt-authorship__stack dd {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-caption);
+  line-height: 1.52;
+}
+
+.dt-authorship__stack-note {
+  margin: 0;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border-subtle);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-caption);
+  line-height: 1.55;
+  font-style: italic;
 }
