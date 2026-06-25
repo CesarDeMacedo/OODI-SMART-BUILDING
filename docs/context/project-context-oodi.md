@@ -598,6 +598,8 @@ Documented limitations:
 
 **Conclusion:** Approved for Stage 10 — Portfolio Packaging.
 
+See full QA detail: [`docs/qa/stage-09-final-qa-report.md`](../qa/stage-09-final-qa-report.md)
+
 ---
 
 ## 16. Development Principles
@@ -674,3 +676,28 @@ Added a two-column layout to the "Project authorship" card on the Data Transpare
 * runtime data sources (Nuuka Open API, Open-Meteo) are listed separately from AI-workflow tools.
 
 Typecheck, lint, 124/124 tests and production build all pass.
+
+### Resource Performance — Visual Refinements (pre-Stage 10)
+
+**Status:** Complete  
+**Closed:** 2026-06-25  
+**Commit:** `479ca64`
+
+- Utility-aware hero overlays completed for all four utilities
+- Water overlay made more organic; District Cooling supply/return treatment added
+- Utility accent CSS token corrected
+- Water zero-state explanation added
+
+Typecheck, lint, 124/124 tests and production build all pass.
+
+### Mobile Stabilization (pre-Stage 10)
+
+**Status:** Complete  
+**Closed:** 2026-06-25  
+**Commit:** `98c0510`
+
+Overview, Resource Performance and Building Intelligence stabilized for mobile portfolio viewing at 390×844 and 430×932 portrait viewports. Desktop (≥ 1000 px) remains the primary presentation target. Building Intelligence uses the zone list as the primary mobile interaction. No data semantics, source classifications, deterministic values or product claims changed. The user manually verified the deployed mobile experience.
+
+Typecheck, lint, 124/124 tests and production build all pass.
+
+**All post-QA refinements complete. Project ready for Stage 10 — Portfolio Packaging.**
