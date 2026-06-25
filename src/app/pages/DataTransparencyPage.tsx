@@ -298,8 +298,8 @@ export function DataTransparencyPage() {
           <div className="panel dt-credit-item">
             <h3>Opening Hero</h3>
             <p>
-              Oodi Helsinki exterior photography used as a public-domain reference image.
-              Not an official Oodi or City of Helsinki publication.
+              AI-assisted conceptual exterior image inspired by Oodi&apos;s documented
+              architectural character. Not an official Oodi or City of Helsinki photograph.
             </p>
           </div>
           <div className="panel dt-credit-item">

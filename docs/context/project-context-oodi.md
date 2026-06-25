@@ -527,6 +527,41 @@ Delivered:
 * reduced-motion prefers-reduced-motion supported via CSS;
 * typecheck, lint, 108/108 tests and production build all pass.
 
+### Stage 8 — Insights and Data Transparency
+
+**Status:** Implemented and approved  
+**Closed:** 2026-06-25  
+
+Delivered:
+
+**Insights page:**
+
+* deterministic rule-based insight generation — no runtime generative AI, no machine learning, no unsupported causal claims or forecasts;
+* Priority Insights section — maximum two Data Notice cards, remaining notices overflow to Data Quality & Coverage;
+* Data Quality & Coverage section — separate from Priority Insights, lists all remaining data-quality observations without crowding the priority view;
+* Latest Available Readings — compact per-utility cards with correct values, units and individual source timestamps; no synchronized timestamps;
+* Weather Context — independently attributed Open-Meteo data displayed separately from utility data; no implied causal relationship;
+* Period Context — secondary summaries for requested and effective periods; fallback period labelled when it differs from the request;
+* loading, empty, partial, fallback, cached-snapshot and error states preserved throughout;
+* no synthetic scores, no interpolated values, no operational-system claims;
+* no full-card duplication between Priority Insights and Data Quality & Coverage;
+* responsive layout consistent with other pages.
+
+**Data Transparency page:**
+
+* Public Building Data, Current Public Weather Data and Conceptual IoT Layer remain clearly and visually distinct via ClassificationBadge;
+* Cached Public Data Snapshot, Partial Data and Unavailable / Error remain distinguishable;
+* Helsinki Nuuka Open API attribution accurate; Open-Meteo CC BY 4.0 attribution accurate;
+* Opening Hero and Building Intelligence image credits both explicitly described as AI-assisted and conceptual — no public-domain claim;
+* requested versus effective period explained in Methodology;
+* independent utility timestamps explained — each utility has its own source timestamp, not synchronised;
+* fallback and snapshot authenticity explained — snapshot contains authentic Nuuka data, not synthesised values;
+* no-interpolation statement preserved;
+* project limitations and non-affiliation disclaimer present — not affiliated with Oodi, the City of Helsinki, Nuuka, Open-Meteo or WSP;
+* all text readable at Chrome 100% zoom across 1280×800, 1536×864 and 1920×1080;
+* no horizontal scrolling; no content overlap; keyboard focus visible; direct route refresh works;
+* typecheck, lint, 124/124 tests and production build all pass.
+
 ---
 
 ## 16. Development Principles
@@ -556,19 +591,17 @@ Each stage should be tested before moving to the next.
 
 ## 17. Current Project Status
 
-Completed:
+Completed stages:
 
-* Vite + React + TypeScript project initialized;
-* Oodi identified in Nuuka;
-* identifiers confirmed;
-* four utility groups confirmed;
-* units confirmed;
-* hourly, daily and monthly data tested;
-* CORS confirmed;
-* discovery report created;
-* temporary API discovery page created;
-* typecheck, lint and build passed.
+* Stage 1 — Data Discovery: Oodi identified in Nuuka; four utility groups confirmed; CORS confirmed.
+* Stage 2 — Data Foundation: runtime Nuuka integration; normalized data structures; loading, error, empty, partial and snapshot states.
+* Stage 3 — Weather Integration: Open-Meteo forecast API; independent weather timestamp; CC BY 4.0 attribution.
+* Stage 4 — Information Architecture: navigation, routing, page shell, responsive layout, sidebar.
+* Stage 5 — Visual Design System: design tokens, shared components, DataStatus, ClassificationBadge, DisclosureBar, chart visual language.
+* Stage 6 — Resource Performance: four utility views; 24h, 30d, 12m periods; SVG charts; KPI metrics; provenance attribution.
+* Stage 7 — Building Intelligence: cutaway illustration; deterministic conceptual IoT dataset; zone/layer/level selection; conceptual disclosures throughout.
+* Stage 8 — Insights and Data Transparency: deterministic rule-based Insights; Priority Insights with two-card Data Notice cap; Data Quality & Coverage section; compact Latest Available Readings; independent Weather Context; Data Transparency information architecture; source classifications, methodology, limitations and AI-assisted image credits.
 
 Next action:
 
-> Create and approve the MVP Product Requirements Document before starting the second implementation phase.
+> Stage 9 — Portfolio screenshots, final deployment preparation and project closure.

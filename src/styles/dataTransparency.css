@@ -16,6 +16,7 @@
 .page--data-transparency h2 {
   margin: 0;
   font-size: var(--font-size-section-title);
+  font-weight: var(--font-weight-semibold);
 }
 
 /* ── Header ─────────────────────────────────────────────────────────────────── */

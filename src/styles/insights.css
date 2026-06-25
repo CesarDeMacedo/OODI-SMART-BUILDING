@@ -42,6 +42,27 @@
   line-height: 1.55;
 }
 
+/* ── Section structure ──────────────────────────────────────────────────────── */
+
+.ins-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.ins-section__title {
+  margin: 0;
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+/* ── Card grids ─────────────────────────────────────────────────────────────── */
+
 .ins-cards {
   display: grid;
   gap: var(--space-4);
@@ -59,8 +80,88 @@
   }
 }
 
+/* Period Context: visually quieter, denser padding */
+.ins-cards--dense .insight-card {
+  padding: var(--space-4);
+  opacity: 0.82;
+}
+
+/* ── State wrapper ──────────────────────────────────────────────────────────── */
+
 .ins-state-wrap {
   padding: var(--space-5) 0;
+}
+
+/* ── Readings + Weather row ─────────────────────────────────────────────────── */
+
+.ins-readings-weather {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+@media (min-width: 1000px) {
+  .ins-readings-weather {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .ins-readings-weather > .ins-section:first-child {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .ins-section--weather {
+    flex: 0 0 296px;
+  }
+}
+
+/* ── Compact reading chips ──────────────────────────────────────────────────── */
+
+.ins-readings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+@media (min-width: 800px) {
+  .ins-readings-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.ins-reading-chip {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border-subtle);
+  border-left: 3px solid var(--chip-accent, var(--color-border-subtle));
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.042), rgba(255, 255, 255, 0.014)),
+    var(--color-surface-primary);
+  box-shadow: var(--shadow-panel);
+}
+
+.ins-reading-chip--electricity { --chip-accent: var(--color-utility-electricity); }
+.ins-reading-chip--heat        { --chip-accent: var(--color-utility-heat); }
+.ins-reading-chip--water       { --chip-accent: var(--color-utility-water); }
+.ins-reading-chip--districtCooling { --chip-accent: var(--color-utility-cooling); }
+
+.ins-reading-chip__label {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--chip-accent, var(--color-text-muted));
+}
+
+.ins-reading-chip__body {
+  margin: 0;
+  font-size: var(--font-size-label);
+  color: var(--color-text-secondary);
+  line-height: 1.45;
 }
 
 /* ── InsightCard kind accents ───────────────────────────────────────────────── */
@@ -95,4 +196,21 @@
 
 .insight-card--kind-summary {
   opacity: 0.72;
+}
+
+/* Priority section: stronger kind accent colours */
+.ins-cards--priority .insight-card--kind-quality {
+  border-color: color-mix(in srgb, var(--color-status-error) 65%, transparent);
+  background:
+    color-mix(in srgb, var(--color-status-error) 6%, transparent),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+    var(--color-surface-primary);
+}
+
+.ins-cards--priority .insight-card--kind-fallback {
+  border-color: color-mix(in srgb, var(--color-status-warning) 65%, transparent);
+  background:
+    color-mix(in srgb, var(--color-status-warning) 6%, transparent),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+    var(--color-surface-primary);
 }
