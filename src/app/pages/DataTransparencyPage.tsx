@@ -4,7 +4,7 @@ import { ClassificationBadge, DataStatus } from '../../components/layout/DataSta
 import type { ModuleState } from '../../components/layout/DataStatus'
 import { DisclosureBar } from '../../components/layout/DisclosureBar'
 import { TransparencyRow } from '../../components/cards/TransparencyRow'
-import { classificationLabels, prototypeDisclaimer } from '../../content/pageContent'
+import { classificationLabels, prototypeDisclaimer, PORTFOLIO_URL, LINKEDIN_URL } from '../../content/pageContent'
 import type { UtilitySeries } from '../../data/utilities/utilitySeries'
 
 function moduleStateFromLoad(state: UtilityLoadState): ModuleState<UtilitySeries> {
@@ -324,6 +324,51 @@ export function DataTransparencyPage() {
               Stage 4 reference images are documentary references used during design.
               They are not served at runtime and are not part of the deployed application.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Section F: Project Authorship ────────────────────────────────────── */}
+      <section className="dt-section" aria-labelledby="dt-authorship-heading">
+        <div className="dt-section__heading">
+          <h2 id="dt-authorship-heading">Project authorship</h2>
+        </div>
+        <div className="panel dt-authorship" style={{ padding: 'var(--space-5)' }}>
+          <p>
+            Oodi Smart Building Intelligence is a self-initiated portfolio prototype designed
+            and developed by Cesar De Macedo.
+          </p>
+          <p>
+            The project explores how public building utility data, current public weather context
+            and clearly labelled conceptual IoT information can be transformed into a more
+            understandable digital advisory experience.
+          </p>
+          <p className="dt-authorship__roles">
+            Product strategy, information architecture, UX/UI direction, data-source evaluation,
+            technical visualization and AI-assisted application development.
+          </p>
+          <p className="dt-authorship__disclaimer">
+            This is an independent conceptual study. It is not an official product of Helsinki
+            Central Library Oodi, the City of Helsinki, Nuuka or WSP, and it is not connected
+            to an operational building-management system.
+          </p>
+          <div className="dt-authorship__ctas">
+            <a
+              href={PORTFOLIO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="dt-authorship__cta"
+            >
+              View Portfolio
+            </a>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="dt-authorship__cta"
+            >
+              Connect on LinkedIn
+            </a>
           </div>
         </div>
       </section>

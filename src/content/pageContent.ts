@@ -27,6 +27,9 @@ export const classificationLabels: Record<DataClassificationKind, { label: strin
   },
 }
 
+export const PORTFOLIO_URL = 'https://blacklabvisuals.com/'
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/cesar-de-macedo-3b4a5a51/'
+
 export const prototypeDisclaimer =
   'Independent portfolio prototype. Not affiliated with Oodi, the City of Helsinki, Nuuka or WSP.'
 

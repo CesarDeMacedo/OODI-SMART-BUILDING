@@ -368,6 +368,26 @@
   text-align: center;
 }
 
+.app-footer__attribution {
+  font-size: var(--font-size-label);
+  line-height: 1.7;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.app-footer__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(146, 162, 182, 0.4);
+  transition: color 0.12s, text-decoration-color 0.12s;
+}
+
+.app-footer__link:hover {
+  color: var(--color-text-secondary);
+  text-decoration-color: var(--color-text-secondary);
+}
+
 .utility-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

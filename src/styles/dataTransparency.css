@@ -260,3 +260,55 @@
   font-size: var(--font-size-label);
   line-height: 1.52;
 }
+
+/* ── Project Authorship ──────────────────────────────────────────────────────── */
+
+.dt-authorship {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.dt-authorship p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-label);
+  line-height: 1.6;
+  max-width: 74ch;
+}
+
+.dt-authorship__roles {
+  color: var(--color-text-muted) !important;
+  font-style: italic;
+}
+
+.dt-authorship__disclaimer {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border-subtle);
+  color: var(--color-text-muted) !important;
+  font-size: var(--font-size-caption) !important;
+}
+
+.dt-authorship__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+.dt-authorship__cta {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-label);
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.dt-authorship__cta:hover {
+  border-color: var(--color-accent-primary);
+  color: var(--color-text-primary);
+}
