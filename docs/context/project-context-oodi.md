@@ -565,7 +565,10 @@ Delivered:
 ### Stage 9 — Final Quality Assurance
 
 **Status:** Complete  
+**Recommendation:** PASS  
 **Closed:** 2026-06-25  
+**QA commit:** `33ebb85`  
+**Browser/tooling:** Chromium · Playwright  
 
 Validated:
 
@@ -587,9 +590,13 @@ Validated:
 * tab order — logical (logo → navigation → content);
 * no application-level JavaScript or React errors in browser console.
 
+Defect summary: High 0 · Medium 0 · Low 1.
+
 Documented limitations:
 
 * Nuuka hourly endpoint returns 404 for Electricity, Heat and District Cooling when requesting today's data — this is a server-side API behaviour, not an application defect; the fallback strategy correctly recovers via monthly data and an earlier hourly window; browser console logs these 404s automatically (cannot be suppressed in client code); fallback states are correctly labelled in the UI.
+
+**Conclusion:** Approved for Stage 10 — Portfolio Packaging.
 
 ---
 
