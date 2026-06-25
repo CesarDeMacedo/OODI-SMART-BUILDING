@@ -600,6 +600,21 @@ Documented limitations:
 
 See full QA detail: [`docs/qa/stage-09-final-qa-report.md`](../qa/stage-09-final-qa-report.md)
 
+### Stage 10 — Portfolio Packaging
+
+**Status:** In progress  
+**Started:** 2026-06-25  
+No application changes planned. Documentation, screenshot capture and portfolio packaging in preparation.
+
+Deliverables in progress:
+
+* `docs/portfolio/stage-10-portfolio-packaging-plan.md`
+* `docs/portfolio/oodi-case-study-content.md`
+* `docs/portfolio/oodi-technical-summary.md`
+* `docs/portfolio/oodi-screenshot-shot-list.md`
+* `e2e/portfolio-screenshots.spec.ts` — Playwright screenshot capture script
+* `portfolio-assets/screenshots/` — screenshot output directory
+
 ---
 
 ## 16. Development Principles
