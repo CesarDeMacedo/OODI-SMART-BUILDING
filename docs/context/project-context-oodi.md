@@ -562,6 +562,35 @@ Delivered:
 * no horizontal scrolling; no content overlap; keyboard focus visible; direct route refresh works;
 * typecheck, lint, 124/124 tests and production build all pass.
 
+### Stage 9 — Final Quality Assurance
+
+**Status:** Complete  
+**Closed:** 2026-06-25  
+
+Validated:
+
+* 28 test files, 124 tests — all pass;
+* TypeScript typecheck, ESLint and production build — all pass;
+* all six routes (`/`, `/overview`, `/resource-performance`, `/building-intelligence`, `/insights`, `/data-transparency`) — render correctly, no application errors;
+* browser back and forward navigation — correct;
+* active `aria-current="page"` nav state — correct on all routes;
+* direct hash-route refresh — correct (hash routing, no server-side config required);
+* four utility selectors and three period selectors on Resource Performance — all functional;
+* four level selectors and five intelligence layer tabs on Building Intelligence — all functional, correct pressed states;
+* Priority Insights cap — two Data Notice cards in Priority section, remaining in Data Quality & Coverage;
+* utility fallback states — labelled "Latest available period" with visual indicator for Electricity, Heat and District Cooling; Water returned live hourly data;
+* Open-Meteo weather — independent from utility timestamps, independently attributed;
+* Conceptual IoT disclosures — present throughout Building Intelligence;
+* no horizontal scroll at 2560×1440, 1920×1080, 1536×864 and 1366×768;
+* focus-visible outlines — present (`2px solid` accent) on all interactive elements;
+* reduced-motion CSS — present in stylesheet;
+* tab order — logical (logo → navigation → content);
+* no application-level JavaScript or React errors in browser console.
+
+Documented limitations:
+
+* Nuuka hourly endpoint returns 404 for Electricity, Heat and District Cooling when requesting today's data — this is a server-side API behaviour, not an application defect; the fallback strategy correctly recovers via monthly data and an earlier hourly window; browser console logs these 404s automatically (cannot be suppressed in client code); fallback states are correctly labelled in the UI.
+
 ---
 
 ## 16. Development Principles
@@ -601,7 +630,6 @@ Completed stages:
 * Stage 6 — Resource Performance: four utility views; 24h, 30d, 12m periods; SVG charts; KPI metrics; provenance attribution.
 * Stage 7 — Building Intelligence: cutaway illustration; deterministic conceptual IoT dataset; zone/layer/level selection; conceptual disclosures throughout.
 * Stage 8 — Insights and Data Transparency: deterministic rule-based Insights; Priority Insights with two-card Data Notice cap; Data Quality & Coverage section; compact Latest Available Readings; independent Weather Context; Data Transparency information architecture; source classifications, methodology, limitations and AI-assisted image credits.
+* Stage 9 — Final Quality Assurance: 124/124 tests pass; typecheck, lint and build pass; all six routes verified; responsive layouts confirmed at four viewports; keyboard focus and reduced-motion confirmed; no High or Medium defects; Nuuka 404 fallback behaviour documented as known limitation.
 
-Next action:
-
-> Stage 9 — Portfolio screenshots, final deployment preparation and project closure.
+**MVP complete.**
