@@ -639,6 +639,14 @@
     font-size: 0.88rem;
   }
 
+  .page--resource {
+    width: min(1840px, calc(100% - 80px));
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.88rem;
+  }
+
   /* Match design panel style: solid #0f1a2e bg, #1c2840 border, 16px radius */
   .page--overview .panel {
     background: #0f1a2e;
@@ -646,14 +654,25 @@
     border-radius: 16px;
   }
 
-  .page--overview .panel::before {
+  .page--overview .panel::before,
+  .page--resource .panel::before {
     display: none;
+  }
+
+  .page--resource .panel {
+    background: #0f1a2e;
+    border-color: #1c2840;
+    border-radius: 16px;
   }
 
   .page--overview h1,
   .page--overview h2,
   .page--overview h3,
-  .page--overview p {
+  .page--overview p,
+  .page--resource h1,
+  .page--resource h2,
+  .page--resource h3,
+  .page--resource p {
     margin: 0;
   }
 
@@ -662,7 +681,8 @@
     line-height: 1.35;
   }
 
-  .page--overview .data-status {
+  .page--overview .data-status,
+  .page--resource .data-status {
     min-height: 22px;
     padding: 2px var(--space-2);
     font-size: 0.72rem;
@@ -1924,21 +1944,22 @@
     white-space: nowrap;
   }
 
-  /* Hero + KPI row */
-  .rp-hero-kpi {
-    height: 138px;
+  /* Main body: large Oodi hero + chart side by side */
+  .rp-main-body {
+    height: 330px;
     flex: none;
     display: grid;
-    grid-template-columns: 370px 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1.52fr 1fr;
     gap: 14px;
   }
 
-  /* Hero strip */
+  /* Hero panel — dominant image element */
   .rp-hero-strip.panel {
     position: relative;
     padding: 0;
     overflow: hidden;
-    border-color: color-mix(in srgb, var(--utility-accent, #1c2840) 35%, #1c2840);
+    border-color: color-mix(in srgb, var(--utility-accent, #1c2840) 45%, #1c2840);
+    box-shadow: var(--shadow-panel), 0 0 48px color-mix(in srgb, var(--utility-accent, transparent) 12%, transparent);
   }
 
   .rp-hero-strip .media-slot {
@@ -1954,26 +1975,25 @@
 
   .rp-hero-strip .media-slot::before {
     background:
-      linear-gradient(98deg, rgba(8,13,26,0.96) 0%, rgba(8,13,26,0.80) 32%, rgba(8,13,26,0.35) 58%, rgba(8,13,26,0) 78%);
+      linear-gradient(0deg, rgba(8,13,26,0.92) 0%, rgba(8,13,26,0.55) 25%, rgba(8,13,26,0.08) 55%, rgba(8,13,26,0) 75%),
+      linear-gradient(90deg, rgba(8,13,26,0.30) 0%, transparent 50%);
   }
 
   .rp-hero-strip__overlay {
     position: absolute;
     inset: 0;
-    background: color-mix(in srgb, var(--utility-accent, transparent) 4%, transparent);
+    background: color-mix(in srgb, var(--utility-accent, transparent) 5%, transparent);
     pointer-events: none;
   }
 
   .rp-hero-strip__content {
     position: absolute;
-    left: 18px;
-    top: 0;
-    bottom: 0;
+    left: 22px;
+    bottom: 20px;
     z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 6px;
+    gap: 7px;
     pointer-events: none;
   }
 
@@ -1984,19 +2004,19 @@
   }
 
   .rp-hero-strip__icon.ovw-icon-box {
-    width: 24px;
-    height: 24px;
-    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
   }
 
   .rp-hero-strip__name {
-    font-size: 17px;
+    font-size: 24px;
     font-weight: 800;
-    letter-spacing: -0.2px;
+    letter-spacing: -0.4px;
   }
 
   .rp-hero-strip__location {
-    font-size: 12px;
+    font-size: 13px;
     color: #9aabc7;
     font-weight: 500;
   }
@@ -2021,6 +2041,15 @@
     color: var(--utility-accent, var(--color-utility-electricity));
     border: 1px solid color-mix(in srgb, var(--utility-accent, var(--color-utility-electricity)) 35%, transparent);
     background: color-mix(in srgb, var(--utility-accent, var(--color-utility-electricity)) 8%, transparent);
+  }
+
+  /* KPI row */
+  .rp-kpi-row {
+    height: 110px;
+    flex: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
   }
 
   /* KPI cards */
@@ -2136,12 +2165,25 @@
 
   /* Chart panel */
   .rp-chart-panel.panel {
-    height: 560px;
     padding: 12px 18px;
     display: flex;
     flex-direction: column;
     gap: 0;
     overflow: hidden;
+  }
+
+  /* When chart lives beside the hero in main-body, fill the grid cell */
+  .rp-main-body .rp-chart-panel.panel {
+    height: 100%;
+  }
+
+  /* Hide the right sidebar in the side-by-side layout — chart gets full width */
+  .rp-main-body .rp-chart-body {
+    grid-template-columns: 1fr;
+  }
+
+  .rp-main-body .rp-chart-right {
+    display: none;
   }
 
   .rp-chart-panel__header {
@@ -2416,6 +2458,17 @@
     align-items: center;
     gap: 4px;
     color: var(--color-data-public) !important;
+  }
+
+  /* Water zero-state note */
+  .rp-chart-zero-note {
+    margin: 6px 0 0;
+    padding: 0 4px;
+    font-size: 11px;
+    font-style: italic;
+    color: #67768f;
+    font-weight: 500;
+    text-align: center;
   }
 }
 

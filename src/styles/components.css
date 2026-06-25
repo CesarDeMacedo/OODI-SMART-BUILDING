@@ -455,11 +455,11 @@
 
 .resource-overlay__path {
   fill: none;
-  stroke: var(--color-utility-electricity);
+  stroke: var(--utility-accent, var(--color-utility-electricity));
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 2;
-  filter: drop-shadow(0 0 5px rgba(232, 182, 63, 0.44));
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--utility-accent, var(--color-utility-electricity)) 44%, transparent));
 }
 
 .resource-overlay__path--secondary {
@@ -468,8 +468,8 @@
 }
 
 .resource-overlay__node {
-  fill: #ffe6a2;
-  filter: drop-shadow(0 0 6px rgba(232, 182, 63, 0.68));
+  fill: var(--utility-accent, var(--color-utility-electricity));
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--utility-accent, var(--color-utility-electricity)) 68%, transparent));
 }
 
 @media (max-width: 1100px) {

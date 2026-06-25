@@ -196,10 +196,10 @@ export function ResourcePerformancePage() {
         </div>
       </div>
 
-      {/* ── Hero + KPI row ── */}
-      <div className="rp-hero-kpi">
+      {/* ── Main body: hero image + chart ── */}
+      <div className="rp-main-body">
 
-        {/* Hero strip */}
+        {/* Hero panel — dominant Oodi image */}
         <div className="rp-hero-strip panel" data-utility={utility}>
           <MediaSlot
             asset={mediaAssets.resourcePerformanceHeroMedia}
@@ -223,72 +223,12 @@ export function ResourcePerformancePage() {
           </div>
         </div>
 
-        {/* KPI: Average */}
-        <div className="rp-kpi-card">
-          <div className="rp-kpi-card__label">Average</div>
-          <div className="rp-kpi-card__value-row">
-            <span className="rp-kpi-card__value">
-              {metrics.average !== null
-                ? metrics.average.toLocaleString(undefined, { maximumFractionDigits: 1 })
-                : '—'}
-            </span>
-            <span className="rp-kpi-card__unit">{unit}</span>
-          </div>
-          <div className="rp-kpi-card__detail">Mean power · {getPeriodLabel(period)}</div>
-        </div>
-
-        {/* KPI: Peak */}
-        <div className="rp-kpi-card rp-kpi-card--accent" data-utility={utility}>
-          <div className="rp-kpi-card__label">Peak</div>
-          <div className="rp-kpi-card__value-row">
-            <span className="rp-kpi-card__value rp-kpi-card__value--accent">
-              {metrics.peak !== null
-                ? metrics.peak.value.toLocaleString(undefined, { maximumFractionDigits: 1 })
-                : '—'}
-            </span>
-            <span className="rp-kpi-card__unit">{unit}</span>
-          </div>
-          <div className="rp-kpi-card__detail rp-kpi-card__detail--accent">
-            Maximum observed · {getPeriodLabel(period)}
-          </div>
-        </div>
-
-        {/* KPI: Latest */}
-        <div className="rp-kpi-card">
-          <div className="rp-kpi-card__label">Latest</div>
-          <div className="rp-kpi-card__value-row">
-            <span className="rp-kpi-card__value">
-              {metrics.latest !== null
-                ? metrics.latest.value.toLocaleString(undefined, { maximumFractionDigits: 1 })
-                : '—'}
-            </span>
-            <span className="rp-kpi-card__unit">{unit}</span>
-          </div>
-          <div className="rp-kpi-card__detail ovw-mono">{metrics.latest?.timestamp ?? sourceTimestamp}</div>
-        </div>
-
-        {/* KPI: Source Timestamp */}
-        <div className="rp-kpi-card">
-          <div className="rp-kpi-card__label">Source Timestamp</div>
-          <div className="rp-kpi-card__ts ovw-mono">{sourceTimestamp}</div>
-          <div className="rp-kpi-card__source">
-            <div className="rp-kpi-card__source-label">Helsinki Nuuka Open API</div>
-            <div className="rp-kpi-card__source-dots">
-              <span className="rp-status-dot rp-status-dot--available" aria-hidden="true" />
-              <span className="rp-status-text rp-status-text--available">Available</span>
-              <span className="rp-status-dot rp-status-dot--hourly" aria-hidden="true" />
-              <span className="rp-status-text">{granularityLabel}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Chart panel ── */}
-      <article
-        className="rp-chart-panel panel"
-        data-utility={utility}
-        aria-label={`${selectedDefinition?.displayName ?? 'Utility'} performance chart`}
-      >
+        {/* Chart panel — beside the hero */}
+        <article
+          className="rp-chart-panel panel"
+          data-utility={utility}
+          aria-label={`${selectedDefinition?.displayName ?? 'Utility'} performance chart`}
+        >
         <div className="rp-chart-panel__header">
           <div className="rp-chart-panel__title-row">
             <div className="ovw-icon-box" data-utility={utility} aria-hidden="true">
@@ -390,6 +330,11 @@ export function ResourcePerformancePage() {
                 )}
               </div>
             </div>
+            {utility === 'water' && !selected.loading && yMax === 0 && !!series && (
+              <p className="rp-chart-zero-note">
+                No measurable water consumption recorded for this period.
+              </p>
+            )}
           </div>
 
           {/* Right panel: period details + legend */}
@@ -443,6 +388,72 @@ export function ResourcePerformancePage() {
         </div>
       </article>
 
+      </div>{/* /rp-main-body */}
+
+      {/* ── KPI row ── */}
+      <div className="rp-kpi-row">
+
+        {/* KPI: Average */}
+        <div className="rp-kpi-card">
+          <div className="rp-kpi-card__label">Average</div>
+          <div className="rp-kpi-card__value-row">
+            <span className="rp-kpi-card__value">
+              {metrics.average !== null
+                ? metrics.average.toLocaleString(undefined, { maximumFractionDigits: 1 })
+                : '—'}
+            </span>
+            <span className="rp-kpi-card__unit">{unit}</span>
+          </div>
+          <div className="rp-kpi-card__detail">Mean power · {getPeriodLabel(period)}</div>
+        </div>
+
+        {/* KPI: Peak */}
+        <div className="rp-kpi-card rp-kpi-card--accent" data-utility={utility}>
+          <div className="rp-kpi-card__label">Peak</div>
+          <div className="rp-kpi-card__value-row">
+            <span className="rp-kpi-card__value rp-kpi-card__value--accent">
+              {metrics.peak !== null
+                ? metrics.peak.value.toLocaleString(undefined, { maximumFractionDigits: 1 })
+                : '—'}
+            </span>
+            <span className="rp-kpi-card__unit">{unit}</span>
+          </div>
+          <div className="rp-kpi-card__detail rp-kpi-card__detail--accent">
+            Maximum observed · {getPeriodLabel(period)}
+          </div>
+        </div>
+
+        {/* KPI: Latest */}
+        <div className="rp-kpi-card">
+          <div className="rp-kpi-card__label">Latest</div>
+          <div className="rp-kpi-card__value-row">
+            <span className="rp-kpi-card__value">
+              {metrics.latest !== null
+                ? metrics.latest.value.toLocaleString(undefined, { maximumFractionDigits: 1 })
+                : '—'}
+            </span>
+            <span className="rp-kpi-card__unit">{unit}</span>
+          </div>
+          <div className="rp-kpi-card__detail ovw-mono">{metrics.latest?.timestamp ?? sourceTimestamp}</div>
+        </div>
+
+        {/* KPI: Source Timestamp */}
+        <div className="rp-kpi-card">
+          <div className="rp-kpi-card__label">Source Timestamp</div>
+          <div className="rp-kpi-card__ts ovw-mono">{sourceTimestamp}</div>
+          <div className="rp-kpi-card__source">
+            <div className="rp-kpi-card__source-label">Helsinki Nuuka Open API</div>
+            <div className="rp-kpi-card__source-dots">
+              <span className="rp-status-dot rp-status-dot--available" aria-hidden="true" />
+              <span className="rp-status-text rp-status-text--available">Available</span>
+              <span className="rp-status-dot rp-status-dot--hourly" aria-hidden="true" />
+              <span className="rp-status-text">{granularityLabel}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>{/* /rp-kpi-row */}
+
       {/* ── Bottom row: related utilities + data notice ── */}
       <div className="rp-bottom resource-compact-utilities">
         {relatedUtilities.map((def) => (
@@ -490,32 +501,126 @@ export function ResourcePerformancePage() {
   )
 }
 
-// ─── Electricity overlay ──────────────────────────────────────────────────────
+// ─── Utility hero overlays ───────────────────────────────────────────────────
 
 function ResourceOverlay({ utility }: { utility: UtilityId }) {
-  if (utility !== 'electricity') return null
-  return (
-    <svg
-      className="resource-overlay resource-overlay--electricity"
-      data-overlay="analytical-electricity"
-      viewBox="0 0 1000 420"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <path className="resource-overlay__path" d="M115 270 C220 238 270 188 366 214 S520 282 638 218 S784 156 900 190" />
-      <path className="resource-overlay__path resource-overlay__path--secondary" d="M330 215 L330 115 L420 115 L420 194" />
-      <path className="resource-overlay__path resource-overlay__path--secondary" d="M635 220 L635 126 L750 126 L750 174" />
-      {[115, 330, 420, 515, 638, 750, 900].map((x, index) => (
-        <circle
-          className="resource-overlay__node"
-          cx={x}
-          cy={[270, 215, 194, 254, 218, 174, 190][index]}
-          key={x}
-          r="4"
-        />
-      ))}
-    </svg>
-  )
+  if (utility === 'electricity') {
+    return (
+      <svg
+        className="resource-overlay resource-overlay--electricity"
+        viewBox="0 0 1000 420"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path className="resource-overlay__path" d="M115 270 C220 238 270 188 366 214 S520 282 638 218 S784 156 900 190" />
+        <path className="resource-overlay__path resource-overlay__path--secondary" d="M330 215 L330 115 L420 115 L420 194" />
+        <path className="resource-overlay__path resource-overlay__path--secondary" d="M635 220 L635 126 L750 126 L750 174" />
+        {[115, 330, 420, 515, 638, 750, 900].map((x, index) => (
+          <circle
+            className="resource-overlay__node"
+            cx={x}
+            cy={[270, 215, 194, 254, 218, 174, 190][index]}
+            key={x}
+            r="4"
+          />
+        ))}
+      </svg>
+    )
+  }
+
+  if (utility === 'heat') {
+    return (
+      <svg
+        className="resource-overlay resource-overlay--heat"
+        viewBox="0 0 1000 420"
+        aria-hidden="true"
+        focusable="false"
+      >
+        {/* Primary thermal convection flow */}
+        <path className="resource-overlay__path" d="M60 360 C140 320 180 260 260 240 C340 220 380 290 460 270 C540 250 580 180 660 165 C740 150 820 195 920 160" />
+        {/* Secondary warmer wave */}
+        <path className="resource-overlay__path resource-overlay__path--secondary" d="M100 390 C200 355 260 300 360 285 C460 270 500 330 600 310 C700 290 780 235 900 215" />
+        {/* Tertiary rising thermal band */}
+        <path className="resource-overlay__path resource-overlay__path--secondary" d="M300 270 C360 245 400 215 460 208 S560 238 640 222" />
+        {/* Heat pulse nodes at thermal peaks */}
+        {[260, 460, 660, 920].map((x, i) => (
+          <circle
+            className="resource-overlay__node"
+            cx={x}
+            cy={[240, 270, 165, 160][i]}
+            key={x}
+            r="4"
+          />
+        ))}
+      </svg>
+    )
+  }
+
+  if (utility === 'water') {
+    return (
+      <svg
+        className="resource-overlay resource-overlay--water"
+        viewBox="0 0 1000 420"
+        aria-hidden="true"
+        focusable="false"
+      >
+        {/* Primary flow — gentle arc tracing the building face */}
+        <path className="resource-overlay__path" d="M60 290 C140 272 200 248 290 242 C380 236 420 262 510 256 C600 250 650 224 740 216 C830 208 875 228 940 222" />
+        {/* Secondary flow — softer parallel current below */}
+        <path className="resource-overlay__path resource-overlay__path--secondary" d="M80 330 C170 312 240 292 340 284 C440 276 480 300 580 292 C680 284 730 262 820 256 C900 251 930 262 970 258" />
+        {/* Tertiary accent — upper reach, tighter rhythm */}
+        <path className="resource-overlay__path resource-overlay__path--secondary" d="M300 256 C390 242 460 230 560 226 C660 222 720 236 820 228" />
+        {/* Flow-junction nodes at natural confluences */}
+        {[290, 510, 740, 940].map((x, i) => (
+          <circle
+            className="resource-overlay__node"
+            cx={x}
+            cy={[242, 256, 216, 222][i]}
+            key={x}
+            r="4"
+          />
+        ))}
+      </svg>
+    )
+  }
+
+  if (utility === 'districtCooling') {
+    return (
+      <svg
+        className="resource-overlay resource-overlay--district-cooling"
+        viewBox="0 0 1000 420"
+        aria-hidden="true"
+        focusable="false"
+      >
+        {/* Supply line — chilled water out, gentle curve */}
+        <path className="resource-overlay__path" d="M80 224 C300 220 620 226 920 222" />
+        {/* Return line — warm water back, paired offset */}
+        <path className="resource-overlay__path resource-overlay__path--secondary" d="M80 238 C300 234 620 240 920 236" />
+        {/* Upper distribution branches */}
+        <path className="resource-overlay__path resource-overlay__path--secondary" d="M200 224 C200 195 240 168 320 145" />
+        <path className="resource-overlay__path resource-overlay__path--secondary" d="M500 224 C500 195 540 168 620 145" />
+        <path className="resource-overlay__path resource-overlay__path--secondary" d="M780 224 C780 195 810 168 880 145" />
+        {/* Lower return branches */}
+        <path className="resource-overlay__path resource-overlay__path--secondary" d="M340 238 C340 268 370 295 440 315" />
+        <path className="resource-overlay__path resource-overlay__path--secondary" d="M650 238 C650 268 680 295 740 315" />
+        {/* Sub-branch stubs */}
+        <path className="resource-overlay__path resource-overlay__path--secondary" d="M320 145 L320 105" />
+        <path className="resource-overlay__path resource-overlay__path--secondary" d="M620 145 L620 105" />
+        {/* Distribution nodes on supply line */}
+        {[80, 200, 340, 500, 650, 780, 920].map((x) => (
+          <circle
+            className="resource-overlay__node"
+            cx={x}
+            cy={224}
+            key={x}
+            r="4"
+          />
+        ))}
+      </svg>
+    )
+  }
+
+  return null
 }
 
 // ─── Related utility summary card ─────────────────────────────────────────────
