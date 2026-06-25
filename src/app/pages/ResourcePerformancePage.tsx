@@ -103,6 +103,7 @@ export function ResourcePerformancePage() {
     if (!el) return
     const fit = () => {
       el.style.zoom = ''
+      if (window.innerWidth < 1000) return
       const shell = el.closest('.app-shell')
       const navH = (shell?.querySelector('.top-nav') as HTMLElement | null)?.offsetHeight ?? 50
       const footH = (shell?.querySelector('.app-footer') as HTMLElement | null)?.offsetHeight ?? 28

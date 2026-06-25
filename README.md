@@ -1,3 +1,12 @@
+# Oodi Smart Building Intelligence — Portfolio Prototype
+
+## Project context
+
+**Mobile stabilisation (2026-06-25)**
+Mobile portfolio viewing stabilised for Overview, Resource Performance, and Building Intelligence pages at 390×844 and 430×932 portrait viewports. Desktop (1366px+) remains the primary presentation target. Key changes: zoom-fit effect disabled below 1000 px so pages scroll naturally on mobile; responsive CSS added for all `ovw-*`, `rp-*`, and `bi-*` layout classes below 1000 px; Building Intelligence uses the zone list as the primary control on mobile (hotspots remain visible but small). No data semantics, source classifications, deterministic values, routes, or desktop layouts were changed.
+
+---
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
