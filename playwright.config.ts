@@ -2,9 +2,8 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './e2e',
-  outputDir: './portfolio-assets/screenshots',
   use: {
-    baseURL: 'https://cesardemacedo.github.io/OODI-SMART-BUILDING',
+    baseURL: 'http://localhost:4173/OODI-SMART-BUILDING',
   },
   projects: [
     {

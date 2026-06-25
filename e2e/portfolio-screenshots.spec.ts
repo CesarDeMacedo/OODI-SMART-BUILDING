@@ -52,8 +52,8 @@ test.describe('Desktop screenshots — 1920×1080', () => {
     // Select Level 2
     const level2Btn = page.getByRole('button', { name: /level 2/i });
     if (await level2Btn.isVisible()) await level2Btn.click();
-    // Select Occupancy layer
-    const occupancyBtn = page.getByRole('button', { name: /occupancy/i });
+    // Select Occupancy layer tab (exact text match to avoid matching hotspot aria-labels)
+    const occupancyBtn = page.getByRole('button', { name: 'Occupancy', exact: true });
     if (await occupancyBtn.isVisible()) await occupancyBtn.click();
     await page.waitForTimeout(400);
     await shot(page, '05-building-intelligence-desktop.png');
