@@ -7,6 +7,7 @@ import { DataTransparencyPage } from './app/pages/DataTransparencyPage'
 import { InsightsPage } from './app/pages/InsightsPage'
 import { OpeningPage } from './app/pages/OpeningPage'
 import { OverviewPage } from './app/pages/OverviewPage'
+import { ProjectAuthorshipPage } from './app/pages/ProjectAuthorshipPage'
 import { ResourcePerformancePage } from './app/pages/ResourcePerformancePage'
 
 function getCurrentRoute(): AppRoute {
@@ -54,6 +55,10 @@ function RoutePage({ routeId }: { routeId: AppRouteId }) {
 
   if (routeId === 'dataTransparency') {
     return <DataTransparencyPage />
+  }
+
+  if (routeId === 'projectAuthorship') {
+    return <ProjectAuthorshipPage />
   }
 
   return <OpeningPage />

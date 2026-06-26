@@ -5,6 +5,7 @@ export type AppRouteId =
   | 'buildingIntelligence'
   | 'insights'
   | 'dataTransparency'
+  | 'projectAuthorship'
 
 export interface AppRoute {
   id: AppRouteId
@@ -34,6 +35,12 @@ export const appRoutes: readonly AppRoute[] = [
     label: 'Data Transparency',
     hash: '#/data-transparency',
     shortLabel: 'Transparency',
+  },
+  {
+    id: 'projectAuthorship',
+    label: 'About / Authorship',
+    hash: '#/about',
+    shortLabel: 'About',
   },
 ] as const
 
